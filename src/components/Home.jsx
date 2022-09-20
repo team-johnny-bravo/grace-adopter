@@ -1,7 +1,10 @@
 //rafce
-import React from 'react'
+import React, {useCallback} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate();
+  
   const pets = [{
   "id": 1,
   "name": "Josie",
@@ -44,6 +47,7 @@ const Home = () => {
   "imgUrl": "http://dummyimage.com/218x100.png/dddddd/000000"
 }]
 
+
   return (
     <div className='home'>
         <div>
@@ -51,15 +55,16 @@ const Home = () => {
         </div>
         <div>
           {pets.map(pet=>{
+            const handleOnClick = useCallback(() => navigate(`/pet/${pet.id}`, {replace: true}), [navigate]);
             return (
-                        <div className='singlePet'>
-                    <a>
+                  <div className='singlePet'>
+                    <a onClick={handleOnClick}>
                         <div className='petImg'>
                         <img src={pet.imgUrl} alt={pet.name}/>
                         </div>
                         <div className='petName'>{pet.name}</div>
                     </a>
-                    </div>
+                  </div>
                 )
           })}
         </div>

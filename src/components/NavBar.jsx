@@ -15,7 +15,7 @@ const NavBar = () => {
   return (
     <div className='navbar'>
         <h2>
-            <a href="/home">Home</a>
+            <a href="/">Home</a>
             <a href="/about">About</a>
             <a href="/contact">Contact</a>
             {user.isAdmin ? <button onClick={()=>navigate('/addpet')}>Add Pet</button> : null}
