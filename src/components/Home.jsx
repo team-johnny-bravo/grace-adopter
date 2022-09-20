@@ -57,7 +57,7 @@ const Home = () => {
           {pets.map(pet=>{
             const handleOnClick = useCallback(() => navigate(`/pet/${pet.id}`, {replace: true}), [navigate]);
             return (
-                  <div className='singlePet'>
+                  <div className='singlePet' key={pett.id}>
                     <a onClick={handleOnClick}>
                         <div className='petImg'>
                         <img src={pet.imgUrl} alt={pet.name}/>
