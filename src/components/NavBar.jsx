@@ -1,11 +1,16 @@
 //rafce
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
+
 
 const NavBar = () => {
+    const navigate =useNavigate()
     const user={
-        name: "jeff",
-        isAdmin: true
+        name: "",
+        isAdmin: false
     };
+
+
 
   return (
     <div className='navbar'>
@@ -14,7 +19,7 @@ const NavBar = () => {
             <a href="/about">About</a>
             <a href="/contact">Contact</a>
             {user.isAdmin ? <button>Add Pet</button> : null}
-            {user.name ? <button>Welcome, {user.name}</button> : <button>Login / Signup</button>}
+            {user.name ? <button>Welcome, {user.name}</button> : <button onClick={()=>navigate('/login')}>Login / Signup</button>}
         </h2>
     </div>
   )
