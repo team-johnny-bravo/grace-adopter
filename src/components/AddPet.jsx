@@ -1,23 +1,33 @@
-//rafce
 import React from 'react'
+// import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const SinglePetPage = () => {
-  const pet ={
-  "id": 10,
-  "name": "Emmeline",
-  "age": 3,
-  "description": 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla rem minima impedit dolorum id pariatur, qui consequatur doloremque commodi animi! Ipsam quaerat tempore accusantium blanditiis odit obcaecati esse similique velit.',
-  "favoriteToys":['rope', 'tennis ball', 'frisbee'],
-  "imgUrl": "http://dummyimage.com/218x100.png/dddddd/000000"
-}
-const user = {
-  name: "Jeff",
-  isAdmin: true,
-}
+const AddPet = () => {
+    // const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-if(user.admin){
-  <div>
-    <h1>Update Pet</h1>
+    let [form, setForm] = useState({ 
+        name: '',
+        age: '',
+        imgUrl:'',
+        description: '',
+        favoriteToys: '',
+        species: '',
+        collarSize: '',
+        Status: '',
+        })
+
+    const handleChange = (prop) => (e) => {
+        setForm({
+            ...form,
+            [prop]: +e.target.value,
+        });
+    }; 
+
+  return (
+    <div className='signupPage'>
+        <h1>AddPet</h1>
         <form >
             <label htmlFor="name">Name:</label>
             <input
@@ -67,27 +77,8 @@ if(user.admin){
             </select><br/>
             <input type="submit" value={"Create Pet"} />
         </form>
-  </div>
-}
-else{
-  return (
-    <div>
-      <div>
-        <img src={pet.imgUrl} alt={pet.name} />
-      </div>
-      <div>
-        <div>
-          <h1>{pet.name}</h1>
-          <p className='singlePetAge'>Age: {pet.age}</p>
-          <h3>Description: </h3><br/>
-          <p>{pet.description}</p>
-          <h3>Favorite Toys:</h3> 
-          <p>{pet.favoriteToys.join(', ')}</p>
-        </div>
-      </div>
     </div>
   )
 }
-}
 
-export default SinglePetPage
+export default AddPet
