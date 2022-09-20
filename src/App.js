@@ -1,28 +1,26 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Nav } from "./components";
-import { getCampuses } from "./store/reducers/campusReducer";
-import { getStudents } from "./store/reducers/studentReducer";
+// import { useDispatch } from "react-redux";
+import Home from './components/Home.jsx'
+import SinglePetPage from "./components/SinglePetPage.jsx";
+import NavBar from "./components/NavBar.jsx"
+import Login from "./components/Login.jsx";
+import Signup from "./components/Signup.jsx";
+import AddPet from "./components/AddPet.jsx";
 import { Routes, Route, Link } from "react-router-dom";
 
-function App() {
-  const dispatch = useDispatch();
 
-  //Load campuses and students on app load
-  useEffect(() => {
-    dispatch(getCampuses());
-    dispatch(getStudents());
-  }, []);
+function App() {
+ 
 
   return (
     <>
-      <Nav />
-      <Routes>
+      <NavBar />
+      <Routes>  
         <Route index element={<Home />} />
-        <Route path="campuses" element={<Campuses />} />
-        <Route path="students" element={<Students />} />
-        <Route path="campuses/:campusId" element={<CampusPage />} />
-        <Route path="students/:studentId" element={<StudentPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/addpet" element={<AddPet />} />
+        <Route path="/pet/:petId" element={<SinglePetPage />} />
       </Routes>
     </>
   );
