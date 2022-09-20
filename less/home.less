@@ -1,0 +1,34 @@
+@import "./tools/colors.less";
+@import "./tools/mixins.less";
+
+.home {
+  .flexCenter();
+  flex-direction: column;
+}
+
+.pets {
+  flex-wrap: wrap;
+  .flexCenter();
+}
+
+.banner {
+    margin: 1em;
+}
+
+.banner img {
+  width: 80vw;
+}
+
+.singlePet {
+  .flexCenter();
+  flex-direction: column;
+  margin: 1em;
+  padding: 1em;
+  background-color: @secondary-color;
+}
+
+.singlePet img {
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+}

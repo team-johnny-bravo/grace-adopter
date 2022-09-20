@@ -1,0 +1,20 @@
+@import "./tools/colors.less";
+@import "./tools/mixins.less";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;0,900;1,200;1,400;1,600;1,900&display=swap");
+@import "./form.less";
+@import "./navbar.less";
+@import "./home.less";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: @primary-color;
+  color: @primary-text-color;
+  .flexCenter();
+}
