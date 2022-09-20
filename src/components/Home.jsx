@@ -53,7 +53,7 @@ const Home = () => {
         <div className="banner">
             <img src="https://image.shutterstock.com/image-photo/collage-different-dogs-on-white-600w-1724568655.jpg " alt="Photo of Pup" />
         </div>
-        <div>
+        <div className='pets'>
           {pets.map(pet=>{
             const handleOnClick = useCallback(() => navigate(`/pet/${pet.id}`, {replace: true}), [navigate]);
             return (
