@@ -1,5 +1,15 @@
 const Sequelize = require('sequelize');
 const db = require('./database');
+const jwt = require("jsonwebtoken")
+const bcrypt = require('bcrypt');
+// const config = {
+//     logging: false,
+// };
+  
+// if (process.env.LOGGING) {
+// delete config.logging;
+// }
+
 const User = db.define('user',{
     userName:{
         type:Sequelize.STRING,
@@ -55,6 +65,51 @@ const User = db.define('user',{
         defaultValue:false
     }
 });
+
+User.prototype.generateToken = async function () {
+    try {
+      const token = await jwt.sign({ id: this.id }, process.env.JWT);
+      return { token };
+    } catch (err) {
+      console.error(err);
+    }
+};
+User.byToken = async function (token) {
+    try {
+      const payload = await jwt.verify(token, process.env.JWT);
+      if (payload) {
+        //find user by payload which contains the user id
+        const user = await User.findByPk(payload.id);
+        return user;
+      }
+      const error = Error("bad credentials");
+      error.status = 401;
+      throw error;
+    } catch (ex) {
+      const error = Error("bad credentials");
+      error.status = 401;
+      throw error;
+    }
+};
+User.authenticate = async ({ userName, password }) => {
+    const user = await User.findOne({
+      where: {
+        userName,
+      },
+    });
+    if (!user) {
+        const error = Error("could not find user");
+        error.status = 401;
+        throw error;
+    }
+    const match = await bcrypt.compare(password, user.password);
+    if (match) {
+      return user;
+    }
+    const error = Error("bad credentials");
+    error.status = 401;
+    throw error;
+};
 
 //create authentication
 

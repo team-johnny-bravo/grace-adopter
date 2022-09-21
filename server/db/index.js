@@ -43,7 +43,7 @@ const users =[{
     firstName:'Aaron',
     lastName:'Wang',
     address:'Westbury, NY',
-    yearOfExperience: 5
+    yearsOfExperience: 5
 },{
     userName:'dandan',
     password:'111111',
@@ -51,15 +51,18 @@ const users =[{
     firstName:'Dandan',
     lastName:'Li',
     address:'Greenwich, CT',
-    yearOfExperience: 2    
+    yearsOfExperience: 2    
 }]
 
 const orders = [{
     isCart:true,
     items:['leash', 'treats']
+},{
+    isCart:false,
+    items:['treats', 'toy']
 }]
 
-//??
+
 const syncAndSeed = async()=>{
     await db.sync({force:true})
 
@@ -75,10 +78,14 @@ const syncAndSeed = async()=>{
     return User.create(user);
     }));
 
+    await Promise.all(orders.map(order => {
+        return Order.create(order);
+    })); 
+
     console.log('Seeding successful!')
 }
 
-// 
+
 User.hasMany(Order)
 Order.belongsTo(User)
 
