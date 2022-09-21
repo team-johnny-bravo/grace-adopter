@@ -10,54 +10,54 @@ const AddPet = () => {
     let [form, setForm] = useState({ 
         name: '',
         age: '',
-        imgUrl:'',
+        image:'',
         description: '',
         favoriteToys: '',
         species: '',
         collarSize: '',
-        Status: '',
+        status: '',
         })
 
-    const handleChange = (prop) => (e) => {
+    const handleChange = (prop) => (event) => {
         setForm({
             ...form,
-            [prop]: +e.target.value,
+            [prop]: event.target.value,
         });
     }; 
 
   return (
     <div className='signupPage'>
-        <h1>AddPet</h1>
+        <h1>Add Pet</h1>
         <form >
             <label htmlFor="name">Name:</label>
             <input
                 name="name"
                 value={form.name || ""}
-                onChange={handleChange}
+                onChange={handleChange("name")}
             /> <br/>
             <label htmlFor="age">Age:</label>
             <input
                 name="age"
                 value={form.age || ""}
-                onChange={handleChange}
+                onChange={handleChange("age")}
             /> <br/>
-            <label htmlFor="imgUrl">Image URL:</label>
+            <label htmlFor="image">Image URL:</label>
             <input
-                name="imgUrl"
-                value={form.imgUrl || ""}
-                onChange={handleChange}
+                name="image"
+                value={form.image || ""}
+                onChange={handleChange("image")}
             /> <br/>
             <label htmlFor="description">Description:</label>
             <input
                 name="description"
                 value={form.description || ""}
-                onChange={handleChange}
+                onChange={handleChange("description")}
             /> <br/>
             <label htmlFor="favoriteToys">Favorite Toys:</label>
             <input
                 name="favoriteToys"
                 value={form.favoriteToys || ""}
-                onChange={handleChange}
+                onChange={handleChange("favoriteToys")}
             /> <br/>
             <label htmlFor="species">Species:</label>
             <select name="species" id={form.species}>

@@ -12,7 +12,7 @@
 }
 
 .banner {
-    margin: 1em;
+  margin: 1em;
 }
 
 .banner img {
@@ -21,10 +21,25 @@
 
 .singlePet {
   .flexCenter();
+  text-align: center;
+  border-radius: 5px;
   flex-direction: column;
   margin: 1em;
   padding: 1em;
   background-color: @secondary-color;
+  cursor: pointer;
+}
+
+.singlePet .petName {
+  padding: 0.25em;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.singlePet:hover {
+  transform: translateY(-5px);
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  transition: 200ms;
 }
 
 .singlePet img {

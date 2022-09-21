@@ -54,16 +54,30 @@
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvC70w-.ttf) format('truetype');
 }
+form {
+  border: 1px solid #F19953;
+  padding: 1em 2em;
+  display: flex;
+  flex-direction: column;
+}
 .navbar {
-  background-color: #c5c3c6;
+  background-color: #F19953;
   display: flex;
   justify-content: center;
   align-items: center;
   justify-content: space-around;
-  min-height: 3vh;
+  min-height: 6vh;
 }
 .navbar a {
   text-decoration: none;
+  color: #56351E;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+.navbar a:hover {
+  transition: 200ms;
+  color: #2660A4;
 }
 .home {
   display: flex;
@@ -87,10 +101,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  border-radius: 5px;
   flex-direction: column;
   margin: 1em;
   padding: 1em;
-  background-color: #c5c3c6;
+  background-color: #F19953;
+  cursor: pointer;
+}
+.singlePet .petName {
+  padding: 0.25em;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.singlePet:hover {
+  transform: translateY(-5px);
+  box-shadow: #26394d 0px 20px 30px -10px;
+  transition: 200ms;
 }
 .singlePet img {
   object-fit: cover;
@@ -105,9 +132,28 @@ body {
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #dcdcdd;
-  color: #46494c;
+  background-color: #EDF7F6;
+  color: #56351E;
+}
+button {
+  background: none;
+  color: inherit;
+  border: 1px solid #56351E;
+  padding: 0.25em 0.75em;
+  border-radius: 10px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  transition: 200ms;
+}
+button:hover {
+  background-color: #2660A4;
+  color: #EDF7F6;
+}
+#main {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  text-align: center;
 }

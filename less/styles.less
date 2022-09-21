@@ -16,5 +16,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: @primary-color;
   color: @primary-text-color;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: 1px solid @primary-text-color;
+  padding: 0.25em 0.75em;
+  border-radius: 10px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  transition: 200ms;
+}
+
+button:hover {
+  background-color: @accent-color;
+  color: @primary-color;
+}
+
+#main {
   .flexCenter();
+  flex-direction: column;
+  text-align: center;
 }

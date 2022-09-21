@@ -16,9 +16,9 @@ const NavBar = () => {
             <a href="/">Home</a>
             <a href="/about">About</a>
             <a href="/contact">Contact</a>
-            {user.isAdmin ? <button>Add Pet</button> : null}
+            {user.isAdmin ? <button onClick={() => navigate("/addpet")}>Add Pet</button> : null}
       {user.name ? (
-        <button>Welcome, {user.name}</button>
+        <button onClick={() => navigate("/user/:userId")}>Welcome, {user.name}</button>
       ) : (
         <button onClick={() => navigate("/login")}>Login / Signup</button>
       )}
