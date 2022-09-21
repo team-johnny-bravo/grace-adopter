@@ -34,19 +34,19 @@ const Signup = () => {
             <input
                 name="email"
                 value={form.email || ""}
-                onChange={handleChange}
+                onChange={handleChange("email")}
             /> <br/>
             <label htmlFor="username">Username:</label>
             <input
                 name="username"
                 value={form.username || ""}
-                onChange={handleChange}
+                onChange={handleChange("username")}
             /> <br/>
             <label htmlFor="password">Password:</label>
             <input
                 name="password"
                 value={form.password || ""}
-                onChange={handleChange}
+                onChange={handleChange("passord")}
             /> <br/>
             <label htmlFor="checkPassword">Retype Password:</label>
             <input
@@ -58,25 +58,25 @@ const Signup = () => {
             <input
                 name="fname"
                 value={form.fname || ""}
-                onChange={handleChange}
+                onChange={handleChange("fname")}
             /> <br/>
             <label htmlFor="lname">Last Name:</label>
             <input
                 name="lname"
                 value={form.lname || ""}
-                onChange={handleChange}
+                onChange={handleChange("lname")}
             /> <br/>
             <label htmlFor="address">Address:</label>
             <input
                 name="address"
                 value={form.address || ""}
-                onChange={handleChange}
+                onChange={handleChange("address")}
             /> <br/>
             <label htmlFor="experience">Years of Experience:</label>
             <input
                 name="experience"
                 value={form.experience || ""}
-                onChange={handleChange}
+                onChange={handleChange("experience")}
             /> <br/>
             <input type="submit" value={"Signup"} />
         </form>
