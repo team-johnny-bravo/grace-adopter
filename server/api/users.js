@@ -1,7 +1,21 @@
 const router = require('express').Router();
 const {User} = require('../db')
 const {Order} =require('../db')
+const JWT = require("jsonwebtoken")
+const bcrypt = require('bcrypt');
+const { check, validationResult } = require("express-validator");
 
+const requireToken = async (req, res, next) => {
+    try {
+    //???
+      const token = req.headers.authorization;
+      const user = await User.byToken(token);
+      req.user = user;
+      next();
+    } catch(error) {
+      next(error);
+    }
+};
 
 // GET /api/users
 router.get('/', async (req,res, next)=>{
@@ -57,5 +71,84 @@ router.put('/:id', async(req,res,next)=>{
         next(error)
     }
 })
+
+// SIGNUP /api/users/signup
+router.post('/signup',  [
+    check("email", "Please input a valid email")
+        .isEmail(),
+    check("password", "Please input a password with a min length of 6")
+        .isLength({min: 6})
+], async(req,res)=>{
+    const { email, password, userName, firstName, lastName, address, yearsOfExperience } = req.body;
+    
+    // Validate the inputs 
+    const errors = validationResult(req);
+
+    if(!errors.isEmpty()){
+    // if(errors.length){ ???
+        return res.status(400).json({
+            errors: errors.array()
+        })
+    }
+
+    // Validate if the user doesnt already exist;
+    const user = await User.findOne({
+        where:{
+            email:email
+        }
+    })
+    if(user) {
+        return res.status(400).json({
+            errors: [
+                {
+                    msg: "This user already exists",
+                }
+            ]
+        })
+    }
+
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Save the password into the db
+    const newUser = await User.create({
+        email,
+        password: hashedPassword,
+        userName,
+        firstName,
+        lastName,
+        address,
+        yearsOfExperience
+    });
+    await newUser.save()
+
+    const token = await JWT.sign({ email }, process.env.JWT);
+    // const token = await JWT.sign({ email }, "nfb32")
+    
+    res.json({
+        token
+    })
+})
+
+//Signin /api/users/signin
+router.post("/signin", async (req, res, next) => {
+    try {
+      const user = await User.authenticate(req.body);
+      if(!user) res.sendStatus(404);
+      const token = await user.generateToken();
+      res.send(token); 
+    } catch (ex) {
+      next(ex);
+    }
+});
+
+router.get('/signin', requireToken, async(req, res, next) => {
+    if(req.user) {
+      res.send(req.user);
+    } else {
+      res.sendStatus(404);
+    }
+});
+
 
 module.exports = router
