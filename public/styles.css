@@ -59,13 +59,14 @@ form {
   padding: 1em 2em;
   display: flex;
   flex-direction: column;
+  width: 60vw;
 }
 .navbar {
   background-color: #F19953;
   display: flex;
   justify-content: center;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   min-height: 6vh;
 }
 .navbar a {
@@ -78,6 +79,20 @@ form {
 .navbar a:hover {
   transition: 200ms;
   color: #2660A4;
+}
+.navbar .logo {
+  margin: 0.5em 1em;
+}
+.navbar .logo img {
+  width: 65px;
+}
+.navbar .links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar .links * {
+  margin: 1em;
 }
 .home {
   display: flex;
@@ -96,6 +111,8 @@ form {
 }
 .banner img {
   width: 80vw;
+  border: 8px solid #2660A4;
+  border-radius: 8px;
 }
 .singlePet {
   display: flex;
@@ -123,6 +140,34 @@ form {
   object-fit: cover;
   width: 200px;
   height: 200px;
+}
+.footer {
+  background-color: #F19953;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 6vh;
+}
+.navbar a {
+  text-decoration: none;
+  color: #56351E;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+.navbar a:hover {
+  transition: 200ms;
+  color: #2660A4;
+}
+.about p {
+  font-size: 1.75em;
+  line-height: 1.5em;
+  text-align: justify;
+  text-indent: 3em;
+}
+.about img {
+  width: 200px;
 }
 * {
   box-sizing: border-box;
@@ -156,4 +201,6 @@ button:hover {
   align-items: center;
   flex-direction: column;
   text-align: center;
+  min-height: 88vh;
+  margin: 4em;
 }

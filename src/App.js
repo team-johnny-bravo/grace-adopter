@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 // import { useDispatch } from "react-redux";
-import Home from './components/general/Home.jsx'
+import Home from "./components/general/Home.jsx";
 import SinglePet from "./components/pets/SinglePet.jsx";
-import NavBar from "./components/general/NavBar.jsx"
+import NavBar from "./components/general/NavBar.jsx";
 import Login from "./components/users/Login.jsx";
 import Signup from "./components/users/Signup.jsx";
 import AddPet from "./components/pets/AddPet.jsx";
 import User from "./components/users/User.jsx";
-import Contact from "./components/general/Contact.jsx";
+import Footer from "./components/general/Footer.jsx";
 import About from "./components/general/About.jsx";
 import AdoptPet from "./components/pets/AdoptPet.jsx";
 import SubmitApplication from "./components/pets/SubmitApplication.jsx";
@@ -16,8 +16,6 @@ import AdoptionSupplies from "./components/pets/AdoptionSupplies.jsx";
 
 
 function App() {
- 
-
   return (
     <>
       <NavBar />
@@ -35,6 +33,7 @@ function App() {
           <Route path="/user/:userId" element={<User />} />
         </Routes>
       </div>
+      <Footer />
     </>
   );
 }
