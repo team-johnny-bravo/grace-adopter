@@ -18,10 +18,11 @@ const Signup = () => {
          experience: 0,
         })
 
-    const handleChange = (prop) => (e) => {
+    const handleChange = (prop) => (event) => {
+        console.log(event)
         setForm({
             ...form,
-            [prop]: +e.target.value,
+            [prop]: event.target.value,
         });
     }; 
 
