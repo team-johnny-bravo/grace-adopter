@@ -57,7 +57,7 @@ const AdoptPet = () => {
 		preparation: ''
         })
 
-		navigate('/submitapplication');
+		navigate('/supplies');
   }
 
   return (

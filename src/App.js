@@ -12,6 +12,7 @@ import Contact from "./components/general/Contact.jsx";
 import About from "./components/general/About.jsx";
 import AdoptPet from "./components/pets/AdoptPet.jsx";
 import SubmitApplication from "./components/pets/SubmitApplication.jsx";
+import AdoptionSupplies from "./components/pets/AdoptionSupplies.jsx";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/addpet" element={<AddPet />} />
+          <Route path="/supplies" element={<AdoptionSupplies />} />
           <Route path="/submitapplication" element={<SubmitApplication />} />
           <Route path="/pet/:petId" element={<SinglePet />} />
           <Route path="/user/:userId" element={<User />} />
