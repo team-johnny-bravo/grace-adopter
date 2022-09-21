@@ -95,10 +95,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  border-radius: 5px;
   flex-direction: column;
   margin: 1em;
   padding: 1em;
   background-color: #F19953;
+  cursor: pointer;
+}
+.singlePet .petName {
+  padding: 0.25em;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.singlePet:hover {
+  transform: translateY(-5px);
+  box-shadow: #26394d 0px 20px 30px -10px;
+  transition: 200ms;
 }
 .singlePet img {
   object-fit: cover;
