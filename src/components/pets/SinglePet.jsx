@@ -1,14 +1,17 @@
 //rafce
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const SinglePet = () => {
+  let navigate = useNavigate();
+
   const pet ={
   "id": 10,
   "name": "Emmeline",
   "age": 3,
   "description": 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla rem minima impedit dolorum id pariatur, qui consequatur doloremque commodi animi! Ipsam quaerat tempore accusantium blanditiis odit obcaecati esse similique velit.',
   "favoriteToys":['rope', 'tennis ball', 'frisbee'],
-  "imgUrl": "http://dummyimage.com/218x100.png/dddddd/000000"
+  "image": "http://dummyimage.com/218x100.png/dddddd/000000"
 }
 const user = {
   name: "Jeff",
@@ -18,7 +21,7 @@ const user = {
 const handleChange = (prop) => (e) => {
         setForm({
             ...form,
-            [prop]: +e.target.value,
+            [prop]: e.target.value,
         });
     }; 
 
@@ -32,31 +35,31 @@ if(user.isAdmin){
             <input
                 name="name"
                 value={form.name || ""}
-                onChange={handleChange}
+                onChange={handleChange("name")}
             /> <br/>
             <label htmlFor="age">Age:</label>
             <input
                 name="age"
                 value={form.age || ""}
-                onChange={handleChange}
+                onChange={handleChange("age")}
             /> <br/>
-            <label htmlFor="imgUrl">Image URL:</label>
+            <label htmlFor="image">Image URL:</label>
             <input
-                name="imgUrl"
-                value={form.imgUrl || ""}
-                onChange={handleChange}
+                name="image"
+                value={form.image || ""}
+                onChange={handleChange("image")}
             /> <br/>
             <label htmlFor="description">Description:</label>
             <input
                 name="description"
                 value={form.description || ""}
-                onChange={handleChange}
+                onChange={handleChange("description")}
                 /> <br/>
             <label htmlFor="favoriteToys">Favorite Toys:</label>
             <input
                 name="favoriteToys"
                 value={form.favoriteToys || ""}
-                onChange={handleChange}
+                onChange={handleChange("favoriteToys")}
                 /> <br/>
             <label htmlFor="species">Species:</label>
             <select name="species" id={form.species}>
@@ -94,6 +97,7 @@ else{
           <h3>Favorite Toys:</h3> 
           <p>{pet.favoriteToys.join(', ')}</p>
         </div>
+        <button onClick={()=>navigate("/adopt")}>Adopt Me!</button>
       </div>
     </div>
   )
