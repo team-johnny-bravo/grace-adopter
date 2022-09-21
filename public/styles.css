@@ -110,6 +110,8 @@ form {
 }
 .banner img {
   width: 80vw;
+  border: 8px solid #2660A4;
+  border-radius: 8px;
 }
 .singlePet {
   display: flex;
@@ -199,5 +201,5 @@ button:hover {
   flex-direction: column;
   text-align: center;
   min-height: 88vh;
-  margin: 2em;
+  margin: 4em;
 }
