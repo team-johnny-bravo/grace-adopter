@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 // import { useDispatch } from "react-redux";
 import Home from './components/Home.jsx'
 import SinglePet from "./components/SinglePet.jsx";
@@ -7,7 +8,7 @@ import Login from "./components/Login.jsx";
 import Signup from "./components/Signup.jsx";
 import AddPet from "./components/AddPet.jsx";
 import User from "./components/User.jsx";
-import { Routes, Route, Link } from "react-router-dom";
+import Contact from "./components/Contact.jsx";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <div id="main">
         <Routes>  
           <Route index element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/addpet" element={<AddPet />} />
