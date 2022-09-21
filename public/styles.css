@@ -143,6 +143,12 @@ form {
   transition: 200ms;
   color: #2660A4;
 }
+.about p {
+  font-size: 1.75em;
+  line-height: 1.5em;
+  text-align: justify;
+  text-indent: 3em;
+}
 * {
   box-sizing: border-box;
 }
