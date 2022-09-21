@@ -1,7 +1,7 @@
 //rafce
 import React from 'react'
 
-const SinglePetPage = () => {
+const SinglePet = () => {
   const pet ={
   "id": 10,
   "name": "Emmeline",
@@ -100,4 +100,4 @@ else{
 }
 }
 
-export default SinglePetPage
+export default SinglePet
