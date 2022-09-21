@@ -65,7 +65,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   min-height: 6vh;
 }
 .navbar a {
@@ -78,6 +78,20 @@ form {
 .navbar a:hover {
   transition: 200ms;
   color: #2660A4;
+}
+.navbar .logo {
+  margin: 0.5em 1em;
+}
+.navbar .logo img {
+  width: 65px;
+}
+.navbar .links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar .links * {
+  margin: 1em;
 }
 .home {
   display: flex;
@@ -148,6 +162,9 @@ form {
   line-height: 1.5em;
   text-align: justify;
   text-indent: 3em;
+}
+.about img {
+  width: 200px;
 }
 * {
   box-sizing: border-box;
