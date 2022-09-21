@@ -28,7 +28,7 @@ const User = () => {
 
   return (
     <div className='userPage'>
-        <h1>User</h1>
+          <h1>Edit your details</h1>
         <form >
             <label htmlFor="email">Email Address:</label>
             <input
