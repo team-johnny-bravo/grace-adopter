@@ -2,21 +2,37 @@
 @import "./tools/mixins.less";
 
 .navbar {
-    background-color: @secondary-color;
-    .flexCenter();
-    justify-content: space-around;
-    min-height: 6vh;
+  background-color: @secondary-color;
+  .flexCenter();
+  justify-content: space-between;
+  min-height: 6vh;
 }
 
 .navbar a {
-    text-decoration: none;
-    color: @primary-text-color;
-    letter-spacing: 0.1em;
-    font-weight: 600;
-    font-size: 1.2em;
+  text-decoration: none;
+  color: @primary-text-color;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  font-size: 1.2em;
 }
 
 .navbar a:hover {
-    transition: 200ms;
-    color: @accent-color;
+  transition: 200ms;
+  color: @accent-color;
+}
+
+.navbar .logo {
+  margin: 0.5em 1em;
+}
+
+.navbar .logo img {
+  width: 65px;
+}
+
+.navbar .links {
+  .flexCenter();
+}
+
+.navbar .links * {
+    margin: 1em;
 }
