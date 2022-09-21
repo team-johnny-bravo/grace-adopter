@@ -15,8 +15,17 @@ const user = {
   isAdmin: true,
 }
 
-if(user.admin){
-  <div>
+const handleChange = (prop) => (e) => {
+        setForm({
+            ...form,
+            [prop]: +e.target.value,
+        });
+    }; 
+
+if(user.isAdmin){
+  return(
+
+    <div>
     <h1>Update Pet</h1>
         <form >
             <label htmlFor="name">Name:</label>
@@ -42,13 +51,13 @@ if(user.admin){
                 name="description"
                 value={form.description || ""}
                 onChange={handleChange}
-            /> <br/>
+                /> <br/>
             <label htmlFor="favoriteToys">Favorite Toys:</label>
             <input
                 name="favoriteToys"
                 value={form.favoriteToys || ""}
                 onChange={handleChange}
-            /> <br/>
+                /> <br/>
             <label htmlFor="species">Species:</label>
             <select name="species" id={form.species}>
                 <option value="dog">Dog</option>
@@ -68,6 +77,7 @@ if(user.admin){
             <input type="submit" value={"Create Pet"} />
         </form>
   </div>
+)
 }
 else{
   return (

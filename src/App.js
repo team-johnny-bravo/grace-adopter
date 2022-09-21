@@ -15,13 +15,15 @@ function App() {
   return (
     <>
       <NavBar />
-      <Routes>  
-        <Route index element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/addpet" element={<AddPet />} />
-        <Route path="/pet/:petId" element={<SinglePetPage />} />
-      </Routes>
+      <div id="main">
+        <Routes>  
+          <Route index element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/addpet" element={<AddPet />} />
+          <Route path="/pet/:petId" element={<SinglePetPage />} />
+        </Routes>
+      </div>
     </>
   );
 }

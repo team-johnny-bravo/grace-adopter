@@ -10,12 +10,12 @@ const AddPet = () => {
     let [form, setForm] = useState({ 
         name: '',
         age: '',
-        imgUrl:'',
+        image:'',
         description: '',
         favoriteToys: '',
         species: '',
         collarSize: '',
-        Status: '',
+        status: '',
         })
 
     const handleChange = (prop) => (e) => {
