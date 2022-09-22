@@ -11,9 +11,16 @@ import User from "./components/users/User.jsx";
 import Footer from "./components/general/Footer.jsx";
 import About from "./components/general/About.jsx";
 import AdoptPet from "./components/pets/AdoptPet.jsx";
-
+import { useDispatch } from "react-redux";
+import { fetchPetsAsync } from "./redux/pets/pets.js";
 
 function App() {
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(fetchPetsAsync());
+  }, []);
+
   return (
     <>
       <NavBar />
