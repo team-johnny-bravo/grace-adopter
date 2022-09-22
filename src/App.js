@@ -12,6 +12,7 @@ import Footer from "./components/general/Footer.jsx";
 import About from "./components/general/About.jsx";
 import AdoptPet from "./components/pets/AdoptPet.jsx";
 
+
 function App() {
   return (
     <>
