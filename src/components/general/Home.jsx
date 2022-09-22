@@ -3,7 +3,7 @@ import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { selectPets } from "../../redux/pets/pets";
 import { useSelector } from "react-redux";
-import Pet from "./SinglePetObject.jsx"
+import Pet from "../pets/SinglePetObject.jsx"
 
 const Home = () => {
   const navigate = useNavigate();
