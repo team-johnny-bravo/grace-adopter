@@ -3,6 +3,7 @@ import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { selectPets } from "../../redux/pets/pets";
 import { useSelector } from "react-redux";
+import Pet from "./SinglePetObject"
 
 const Home = () => {
   const navigate = useNavigate();
@@ -19,22 +20,9 @@ const Home = () => {
         />
       </div>
       <div className="pets">
-        {pets.map((pet) => {
-          // const handleOnClick = useCallback(
-          //   () => navigate(`/pet/${pet.id}`, { replace: true }),
-          //   [navigate]
-          // );
-          return (
-            <div className="singlePet" key={pet.id}>
-              <a src={`/pet/${pet.id}`}>
-                <div className="petImg">
-                  <img src={pet.imgUrl} alt={pet.name} />
-                </div>
-                <div className="petName">{pet.name}</div>
-              </a>
-            </div>
-          );
-        })}
+        {pets.map((pet) => 
+          <Pet data={pet} />
+        )}
       </div>
     </div>
   );
