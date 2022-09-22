@@ -9,6 +9,11 @@ const requireToken = async (req, res, next) => {
     try {
     //???
       const token = req.headers.authorization;
+    //   if(!token){
+    //     const error = Error("No token found");
+    //     error.status = 401;
+    //     throw error;
+    //   }
       const user = await User.byToken(token);
       req.user = user;
       next();
