@@ -3,29 +3,29 @@ import axios from "axios";
 
 const initialState = {};
 
-export const fetchSingleProduct = createAsyncThunk("singleProduct", async (id) => {
+export const fetchSingleUser = createAsyncThunk("singleUser", async (id) => {
   try {
-    const { data } = await axios.get(`/api/products/${id}`);
+    const { data } = await axios.get(`/api/users/${id}`);
     return data;
   } catch (err) {
     console.log(err);
   }
 });
 
-const singleProductSlice = createSlice({
-  name: "singleProduct",
+const singleUserSlice = createSlice({
+  name: "singleUser",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchSingleProduct.fulfilled, (state, action) => {
-      // Add product to the state
+    builder.addCase(fetchSingleUser.fulfilled, (state, action) => {
+      // Add user to the state
       return action.payload;
     });
   },
 });
 
-export const selectSingleProduct = (state) => {
-  return state.singleProduct;
+export const selectSingleUser = (state) => {
+  return state.singleUser;
 };
 
-export default singleProductSlice.reducer;
+export default singleUserSlice.reducer;

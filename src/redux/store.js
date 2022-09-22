@@ -3,7 +3,8 @@ import petsSlice from "./pets/pets";
 import singlePetSlice from "./pets/singlePet";
 import productsSlice from "./products/products";
 import singleProductSlice from "./products/singleProduct";
-import usersSlice from "./users/users"
+import usersSlice from "./users/users";
+import singleUserSlice from "./users/singleUser";
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
     singlePet: singlePetSlice,
     products: productsSlice,
     singleProduct: singleProductSlice,
-    users: usersSlice
+    users: usersSlice,
+    singleUser: singleUserSlice,
   },
 });
 
