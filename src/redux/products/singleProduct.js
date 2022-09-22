@@ -3,29 +3,29 @@ import axios from "axios";
 
 const initialState = {};
 
-export const fetchSinglePet = createAsyncThunk("singlePet", async (id) => {
+export const fetchSingleProduct = createAsyncThunk("singleProduct", async (id) => {
   try {
-    const { data } = await axios.get(`/api/pets/${id}`);
+    const { data } = await axios.get(`/api/products/${id}`);
     return data;
   } catch (err) {
     console.log(err);
   }
 });
 
-const singlePetSlice = createSlice({
-  name: "singlePet",
+const singleProductSlice = createSlice({
+  name: "singleProduct",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchSinglePet.fulfilled, (state, action) => {
-      // Add pet to the state
+    builder.addCase(fetchSingleProduct.fulfilled, (state, action) => {
+      // Add product to the state
       return action.payload;
     });
   },
 });
 
-export const selectSinglePet = (state) => {
-  return state.singlePet;
+export const selectSingleProduct = (state) => {
+  return state.singleProduct;
 };
 
-export default singlePetSlice.reducer;
+export default singleProductSlice.reducer;
