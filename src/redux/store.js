@@ -5,6 +5,8 @@ import productsSlice from "./products/products";
 import singleProductSlice from "./products/singleProduct";
 import usersSlice from "./users/users";
 import singleUserSlice from "./users/singleUser";
+import ordersSlice from "./orders/orders";
+import singleOrderSlice from "./orders/singleOrder";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +16,8 @@ export const store = configureStore({
     singleProduct: singleProductSlice,
     users: usersSlice,
     singleUser: singleUserSlice,
+    orders: ordersSlice,
+    singleOrder: singleOrderSlice,
   },
 });
 
