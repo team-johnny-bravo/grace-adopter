@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 import { selectPets } from '../../redux/pets/pets';
 import { fetchSinglePet, selectSinglePet } from '../../redux/pets/singlePet';
+import AdoptPet from './AdoptPet.jsx';
 
 const SinglePet = () => {
   let navigate = useNavigate();
@@ -42,6 +43,10 @@ const Toys = pet =>{
   } else{
     <p>None</p>
   }
+}
+
+const Navigate = ()=>{
+  navigate("/adopt")
 }
 
 if(user.isAdmin){
@@ -116,7 +121,7 @@ else{
           <h3>Favorite Toys:</h3> 
           <Toys />
         </div>
-        <button onClick={()=>navigate("/adopt")}>Adopt Me!</button>
+        <button onClick={Navigate}>Adopt Me!</button>
       </div>
     </div>
   )
