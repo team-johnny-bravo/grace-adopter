@@ -32,7 +32,7 @@ function App() {
       <NavBar />
       <div id="main">
         <Routes>
-          <Route index element={<Home />} />
+          <Route index element={<AdoptPet />} />
           <Route path={"/about"} element={<About />} />
           <Route path={"/login"} element={<Login />} />
           <Route path={"/signup"} element={<Signup />} />
