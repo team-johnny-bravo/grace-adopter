@@ -13,13 +13,19 @@ import About from "./components/general/About.jsx";
 import AdoptPet from "./components/pets/AdoptPet.jsx";
 import { useDispatch } from "react-redux";
 import { fetchPetsAsync } from "./redux/pets/pets.js";
+import { fetchProductsAsync } from "./redux/products/products.js";
+import { fetchUsersAsync } from "./redux/users/users.js";
+import { fetchOrdersAsync } from "./redux/orders/orders.js";
 
 function App() {
   const dispatch = useDispatch();
   
   useEffect(() => {
     dispatch(fetchPetsAsync());
-  }, []);
+    dispatch(fetchProductsAsync());
+    dispatch(fetchUsersAsync());
+    dispatch(fetchOrdersAsync());
+  }, [dispatch]);
 
   return (
     <>
@@ -31,7 +37,7 @@ function App() {
           <Route path={"/login"} element={<Login />} />
           <Route path={"/signup"} element={<Signup />} />
           <Route path={"/addpet"} element={<AddPet />} />
-          <Route path={"/pet/:petId"} element={<SinglePet />} />
+          <Route path={"/pets/:petId"} element={<SinglePet />} />
           <Route path={"/user/:userId"} element={<User />} />
         </Routes>
       </div>
