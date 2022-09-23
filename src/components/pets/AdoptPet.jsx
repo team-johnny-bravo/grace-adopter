@@ -9,11 +9,7 @@ const AdoptPet = () => {
 		</div>
 
 		<div id="todays-date">
-<<<<<<< HEAD
-			<label className="main-label" for="todays-date">Today's Date: </label>
-=======
 			<label className="main-label" htmlFor="todays-date">Today's Date: </label>
->>>>>>> 01c9b2420bfc238e3e514193deeb43f366ed347c
 			<select name="day">
 				<option value="day">Day</option>
 				<option value="1">1</option>
@@ -81,11 +77,7 @@ const AdoptPet = () => {
 		</div>
 
 		<div id="dogName">
-<<<<<<< HEAD
-			<label className="main-label" for="dogNameLabel">Name of the dog you wish to adopt: </label>
-=======
 			<label className="main-label" htmlFor="dogNameLabel">Name of the dog you wish to adopt: </label>
->>>>>>> 01c9b2420bfc238e3e514193deeb43f366ed347c
 			<input type="text" id="dogNameLabel" placeholder="Dog Name" required/>
 		</div>
 
@@ -99,23 +91,6 @@ const AdoptPet = () => {
 
 		<div id="gender">
 			<input type="radio" id="male" name="gender" value="1" required/>
-<<<<<<< HEAD
-			<label className="main-label" for="male">Male</label>
-
-			<input type="radio" id="female" name="gender" value="2" required/>
-			<label className="main-label" for="female">Female</label>
-		</div>
-
-		<div id="address">
-			<label className="main-label" for="address1">Address: </label>
-			<input type="text" id="address1" size="30" placeholder="Enter your address here"/>
-
-
-			<label className="main-label" for="city">City: </label>
-			<input type="text" id="city" size="15" placeholder="Your City"/>
-
-			<label className="main-label" for="postcode">Postcode: </label>
-=======
 			<label className="main-label" htmlFor="male">Male</label>
 
 			<input type="radio" id="female" name="gender" value="2" required/>
@@ -131,33 +106,21 @@ const AdoptPet = () => {
 			<input type="text" id="city" size="15" placeholder="Your City"/>
 
 			<label className="main-label" htmlFor="postcode">Postcode: </label>
->>>>>>> 01c9b2420bfc238e3e514193deeb43f366ed347c
 			<input type="text" id="postcode" size="10" placeholder="Postcode"/>
 
 		</div>
 
 		<div id="email-phone">
-<<<<<<< HEAD
-			<label className="main-label" id="phone-label" for="phone">Phone: </label>
-			<input type="tel" id="phone" placeholder="e.g. +44 7675 403 665"/>
-
-			<label className="main-label" id="email-label" for="email">Email: </label>
-=======
 			<label className="main-label" id="phone-label" htmlFor="phone">Phone: </label>
 			<input type="tel" id="phone" placeholder="e.g. +44 7675 403 665"/>
 
 			<label className="main-label" id="email-label" htmlFor="email">Email: </label>
->>>>>>> 01c9b2420bfc238e3e514193deeb43f366ed347c
 			<input type="email" id="email" placeholder="e.g. youremail@example.co.uk" required size="35"/>
 
 		</div>
 
 		<div id="age">
-<<<<<<< HEAD
-			<ul><label className="main-label" for="age">Age of applicant:</label></ul>
-=======
 			<ul><label className="main-label" htmlFor="age">Age of applicant:</label></ul>
->>>>>>> 01c9b2420bfc238e3e514193deeb43f366ed347c
 
 			<li><input type="radio" id="u18" name="age" value="1" required/>
 				<label htmlFor="u18">Under 18</label></li>
@@ -177,11 +140,7 @@ const AdoptPet = () => {
 		</div>
 
 		<div id="why">
-<<<<<<< HEAD
-			<ul><label className="main-label" for="why">Why do you want to adopt a dog? Please check all that apply:</label></ul>
-=======
 			<ul><label className="main-label" htmlFor="why">Why do you want to adopt a dog? Please check all that apply:</label></ul>
->>>>>>> 01c9b2420bfc238e3e514193deeb43f366ed347c
 			<li><input type="checkbox" name="reason" id="companion" value="companion"/>
 				<label htmlFor="companion">Pet & Companion</label></li>
 
@@ -206,11 +165,7 @@ const AdoptPet = () => {
 		</div>
 
 		<div id="allergies">
-<<<<<<< HEAD
-			<ul><label className="main-label" for="allergies">Is anyone in your household allergic to pets?</label></ul>
-=======
 			<ul><label className="main-label" htmlFor="allergies">Is anyone in your household allergic to pets?</label></ul>
->>>>>>> 01c9b2420bfc238e3e514193deeb43f366ed347c
 
 			<li><input type="radio" id="yes" name="allergy" value="1" required/>
 				<label htmlFor="yes">Yes</label></li>
