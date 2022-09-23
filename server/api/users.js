@@ -147,6 +147,7 @@ router.post("/signin", async (req, res, next) => {
     }
 });
 
+//    /api/users/signin
 router.get('/signin', requireToken, async(req, res, next) => {
     if(req.user) {
       res.send(req.user);
