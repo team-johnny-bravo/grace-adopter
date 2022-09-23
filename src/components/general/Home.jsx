@@ -9,7 +9,6 @@ const Home = () => {
   const navigate = useNavigate();
 
   const pets = useSelector(selectPets);
-  console.dir(pets);
 
   return (
     <div className="home">
@@ -21,7 +20,7 @@ const Home = () => {
       </div>
       <div className="pets">
         {pets.map((pet) => 
-          <Pet data={pet} />
+          <Pet data={pet} key={pet.id} />
         )}
       </div>
     </div>

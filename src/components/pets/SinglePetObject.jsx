@@ -6,7 +6,7 @@ function Pet(props) {
     let pet = props.data
 
      const handleOnClick = useCallback(
-             () => navigate(`/pet/${pet.id}`, { replace: true }),
+             () => navigate(`/pets/${pet.id}`, { replace: true }),
              [navigate]
            );
 

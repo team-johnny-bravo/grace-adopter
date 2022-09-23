@@ -1,29 +1,57 @@
 //rafce
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom'
+import { selectPets } from '../../redux/pets/pets';
+import { fetchSinglePet, selectSinglePet } from '../../redux/pets/singlePet';
 
-const SinglePet = () => {
+const SinglePet = async () => {
   let navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const pet ={
-  "id": 10,
-  "name": "Emmeline",
-  "age": 3,
-  "description": 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla rem minima impedit dolorum id pariatur, qui consequatur doloremque commodi animi! Ipsam quaerat tempore accusantium blanditiis odit obcaecati esse similique velit.',
-  "favoriteToys":['rope', 'tennis ball', 'frisbee'],
-  "image": "http://dummyimage.com/218x100.png/dddddd/000000"
-}
+  const { petId } = useParams();
+
+  const [form, setForm] = React.useState({
+    petId: petId,
+    age: '',
+    image: '',
+    description: '',
+    favoriteToys: '',
+    species: '',
+    collarSize: '',
+    status: '',
+  })
+
+  const pet = await dispatch(fetchSinglePet(petId))
+  console.log('PET: ', pet.payload)
+
+//   const pet ={
+//   "id": 10,
+//   "name": "Emmeline",
+//   "age": 3,
+//   "description": 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla rem minima impedit dolorum id pariatur, qui consequatur doloremque commodi animi! Ipsam quaerat tempore accusantium blanditiis odit obcaecati esse similique velit.',
+//   "favoriteToys":['rope', 'tennis ball', 'frisbee'],
+//   "image": "http://dummyimage.com/218x100.png/dddddd/000000"
+// }
 const user = {
   name: "Jeff",
-  isAdmin: true,
+  isAdmin: false,
 }
 
 const handleChange = (prop) => (e) => {
-        setForm({
-            ...form,
-            [prop]: e.target.value,
-        });
-    }; 
+  setForm({
+    ...form,
+    [prop]: e.target.value,
+  });
+}; 
+
+const Toys = pet =>{
+  if (pet.favoriteToys){
+    <p>{pet.favoriteToys.join(', ')}</p>
+  } else{
+    <p>None</p>
+  }
+}
 
 if(user.isAdmin){
   return(
@@ -95,7 +123,7 @@ else{
           <h3>Description: </h3><br/>
           <p>{pet.description}</p>
           <h3>Favorite Toys:</h3> 
-          <p>{pet.favoriteToys.join(', ')}</p>
+          <Toys />
         </div>
         <button onClick={()=>navigate("/adopt")}>Adopt Me!</button>
       </div>
