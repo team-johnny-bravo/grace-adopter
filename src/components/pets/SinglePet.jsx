@@ -25,14 +25,6 @@ const SinglePet = () => {
 
   const pet = useSelector(selectSinglePet)
 
-//   const pet ={
-//   "id": 10,
-//   "name": "Emmeline",
-//   "age": 3,
-//   "description": 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla rem minima impedit dolorum id pariatur, qui consequatur doloremque commodi animi! Ipsam quaerat tempore accusantium blanditiis odit obcaecati esse similique velit.',
-//   "favoriteToys":['rope', 'tennis ball', 'frisbee'],
-//   "image": "http://dummyimage.com/218x100.png/dddddd/000000"
-// }
 const user = {
   name: "Jeff",
   isAdmin: false,

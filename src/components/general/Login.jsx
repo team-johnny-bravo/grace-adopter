@@ -35,34 +35,34 @@ const Login = () => {
     }
 
 
-    const handleChange = (prop) => (e) => {
+    const handleChange = (prop) => (event) => {
         setForm({
             ...form,
-            [prop]: e.target.value,
+            [prop]: event.target.value,
         });
     };
 
-    return (
-        <div className='loginPage'>
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username:</label>
-                <input
-                    name="username"
-                    value={form.userName || ""}
-                    onChange={handleChange('userName')}
-                /> <br />
-                <label htmlFor="password">Password:</label>
-                <input
-                    name="password"
-                    value={form.password || ""}
-                    onChange={handleChange('password')}
-                /> <br />
-                <input type="submit" value={"Login"} />
-            </form>
-            <button onClick={() => navigate('/signup')}>Sign Up</button>
-        </div>
-    )
+  return (
+    <div className='loginPage'>
+        <h1>Login</h1>
+        <form >
+            <label htmlFor="username">Username:</label>
+            <input
+                name="username"
+                value={form.username || ""}
+                onChange={handleChange("username")}
+            /> <br/>
+            <label htmlFor="password">Password:</label>
+            <input
+                name="password"
+                value={form.password || ""}
+                onChange={handleChange("password")}
+            /> <br/>
+            <input type="submit" value={"Login"} />
+        </form>
+        <button onClick={() => navigate('/signup')}>Sign Up</button>
+    </div>
+  )
 }
 
 export default Login
