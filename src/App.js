@@ -38,6 +38,7 @@ function App() {
           <Route path={"/signup"} element={<Signup />} />
           <Route path={"/addpet"} element={<AddPet />} />
           <Route path={"/pets/:petId"} element={<SinglePet />} />
+          <Route path={"/adopt"} element={<AdoptPet />} />
           <Route path={"/user/:userId"} element={<User />} />
         </Routes>
       </div>

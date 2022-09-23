@@ -9,7 +9,7 @@ const AdoptPet = () => {
 		</div>
 
 		<div id="todays-date">
-			<label class="main-label" for="todays-date">Today's Date: </label>
+			<label className="main-label" htmlFor="todays-date">Today's Date: </label>
 			<select name="day">
 				<option value="day">Day</option>
 				<option value="1">1</option>
@@ -77,116 +77,116 @@ const AdoptPet = () => {
 		</div>
 
 		<div id="dogName">
-			<label class="main-label" for="dogNameLabel">Name of the dog you wish to adopt: </label>
+			<label className="main-label" htmlFor="dogNameLabel">Name of the dog you wish to adopt: </label>
 			<input type="text" id="dogNameLabel" placeholder="Dog Name" required/>
 		</div>
 
 		<div id="first-last-name">
-			<label class="main-label" id="name-label">First Name: </label>
+			<label className="main-label" id="name-label">First Name: </label>
 			<input type="text" id="name" placeholder="John" required/>
 
-			<label class="main-label">Last Name: </label>
+			<label className="main-label">Last Name: </label>
 			<input type="text" id="lastName" placeholder="Smith" required/>
 		</div>
 
 		<div id="gender">
 			<input type="radio" id="male" name="gender" value="1" required/>
-			<label class="main-label" for="male">Male</label>
+			<label className="main-label" htmlFor="male">Male</label>
 
 			<input type="radio" id="female" name="gender" value="2" required/>
-			<label class="main-label" for="female">Female</label>
+			<label className="main-label" htmlFor="female">Female</label>
 		</div>
 
 		<div id="address">
-			<label class="main-label" for="address1">Address: </label>
+			<label className="main-label" htmlFor="address1">Address: </label>
 			<input type="text" id="address1" size="30" placeholder="Enter your address here"/>
 
 
-			<label class="main-label" for="city">City: </label>
+			<label className="main-label" htmlFor="city">City: </label>
 			<input type="text" id="city" size="15" placeholder="Your City"/>
 
-			<label class="main-label" for="postcode">Postcode: </label>
+			<label className="main-label" htmlFor="postcode">Postcode: </label>
 			<input type="text" id="postcode" size="10" placeholder="Postcode"/>
 
 		</div>
 
 		<div id="email-phone">
-			<label class="main-label" id="phone-label" for="phone">Phone: </label>
+			<label className="main-label" id="phone-label" htmlFor="phone">Phone: </label>
 			<input type="tel" id="phone" placeholder="e.g. +44 7675 403 665"/>
 
-			<label class="main-label" id="email-label" for="email">Email: </label>
+			<label className="main-label" id="email-label" htmlFor="email">Email: </label>
 			<input type="email" id="email" placeholder="e.g. youremail@example.co.uk" required size="35"/>
 
 		</div>
 
 		<div id="age">
-			<ul><label class="main-label" for="age">Age of applicant:</label></ul>
+			<ul><label className="main-label" htmlFor="age">Age of applicant:</label></ul>
 
 			<li><input type="radio" id="u18" name="age" value="1" required/>
-				<label for="u18">Under 18</label></li>
+				<label htmlFor="u18">Under 18</label></li>
 
 			<li><input type="radio" id="18" name="age" value="2" required/>
-				<label for="18">18 - 24</label></li>
+				<label htmlFor="18">18 - 24</label></li>
 
 			<li><input type="radio" id="25" name="age" value="3" required/>
-				<label for="25">25 - 34</label></li>
+				<label htmlFor="25">25 - 34</label></li>
 
 			<li><input type="radio" id="35" name="age" value="4" required/>
-				<label for="35">35 - 44</label></li>
+				<label htmlFor="35">35 - 44</label></li>
 
 			<li><input type="radio" id="45" name="age" value="5" required/>
-				<label for="45">45 and older</label></li>
+				<label htmlFor="45">45 and older</label></li>
 
 		</div>
 
 		<div id="why">
-			<ul><label class="main-label" for="why">Why do you want to adopt a dog? Please check all that apply:</label></ul>
+			<ul><label className="main-label" htmlFor="why">Why do you want to adopt a dog? Please check all that apply:</label></ul>
 			<li><input type="checkbox" name="reason" id="companion" value="companion"/>
-				<label for="companion">Pet & Companion</label></li>
+				<label htmlFor="companion">Pet & Companion</label></li>
 
 			<li><input type="checkbox" name="reason" id="gift" value="gift"/>
-				<label for="gift">Gift</label></li>
+				<label htmlFor="gift">Gift</label></li>
 
 			<li><input type="checkbox" name="reason" id="hunting" value="hunting"/>
-				<label for="hunting">Hunting Dog</label></li>
+				<label htmlFor="hunting">Hunting Dog</label></li>
 
 			<li><input type="checkbox" name="reason" id="breeding" value="breeding"/>
-				<label for="breeding">Breeding Dog</label></li>
+				<label htmlFor="breeding">Breeding Dog</label></li>
 
 			<li><input type="checkbox" name="reason" id="guard" value="guard"/>
-				<label for="guard">Guard Dog</label></li>
+				<label htmlFor="guard">Guard Dog</label></li>
 
 			<li><input type="checkbox" name="reason" id="senior" value="senior"/>
-				<label for="senior">For a Senior</label></li>
+				<label htmlFor="senior">For a Senior</label></li>
 
 			<li><input type="checkbox" name="reason" id="child" value="child"/>
-				<label for="child">For a Child</label></li>
+				<label htmlFor="child">For a Child</label></li>
 
 		</div>
 
 		<div id="allergies">
-			<ul><label class="main-label" for="allergies">Is anyone in your household allergic to pets?</label></ul>
+			<ul><label className="main-label" htmlFor="allergies">Is anyone in your household allergic to pets?</label></ul>
 
 			<li><input type="radio" id="yes" name="allergy" value="1" required/>
-				<label for="yes">Yes</label></li>
+				<label htmlFor="yes">Yes</label></li>
 
 			<li><input type="radio" id="no" name="allergy" value="2" required/>
-				<label for="no">No</label></li>
+				<label htmlFor="no">No</label></li>
 
 			<li><input type="radio" id="sometimes" name="allergy" value="3" required/>
-				<label for="sometimes">Sometimes</label></li>
+				<label htmlFor="sometimes">Sometimes</label></li>
 		</div>
 
 		<div id="pets-household">
-			<ul><label class="main-label" id="number-label">How many pets are already in your household?
+			<ul><label className="main-label" id="number-label">How many pets are already in your household?
 			</label></ul>
 			<li><input type="number" id="number" min="1" max="10" placeholder="0"/></li>
 		</div>
 
 		<div id="housing">
-			<label class="main-label">What type of housing you reside?</label>
+			<label className="main-label">What type of housing you reside?</label>
 			<select id="dropdown">
-			<option disabled selected value>Select an option</option>
+			<option hidden value=''>Select an option</option>
 			<option value="apt">Apt / Condo</option>
 			<option value="house">House</option>
 			<option value="other">Other</option>
@@ -194,7 +194,7 @@ const AdoptPet = () => {
 		</div>
 
 		<div id="prepare">
-			<label class="main-label">How did you prepare yourself?</label>
+			<label className="main-label">How did you prepare yourself?</label>
 		</div>
 		<div id="textarea">
     	<textarea id="comments"
