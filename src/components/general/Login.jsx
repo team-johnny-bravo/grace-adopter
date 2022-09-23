@@ -9,12 +9,12 @@ const Login = () => {
 
     let [form, setForm] = useState({ username: '', password: ''})
 
-    const handleChange = (prop) => (e) => {
+    const handleChange = (prop) => (event) => {
         setForm({
             ...form,
-            [prop]: +e.target.value,
+            [prop]: event.target.value,
         });
-    }; 
+    };
 
   return (
     <div className='loginPage'>
@@ -24,13 +24,13 @@ const Login = () => {
             <input
                 name="username"
                 value={form.username || ""}
-                onChange={handleChange}
+                onChange={handleChange("username")}
             /> <br/>
             <label htmlFor="password">Password:</label>
             <input
                 name="password"
                 value={form.password || ""}
-                onChange={handleChange}
+                onChange={handleChange("password")}
             /> <br/>
             <input type="submit" value={"Login"} />
         </form>
