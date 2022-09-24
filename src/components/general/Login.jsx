@@ -2,12 +2,38 @@ import React from 'react'
 // import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
     // const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    let [form, setForm] = useState({ username: '', password: ''})
+    let [form, setForm] = useState({ userName: '', password: '' })
+
+    const attemptTokenLogin = async () => {
+        const token = window.localStorage.getItem('token');
+        console.log('this is token:', token)
+        if (token) {
+            const { data: auth } = await axios.get('/api/users/signin', {
+                headers: {
+                    authorization: token
+                }
+            });
+            const { id } = auth
+            console.log('id:', id)
+        }
+    }
+    const signIn = async (credentials) => {
+        const response = await axios.post('/api/users/signin', credentials);
+        const { token } = response.data;
+        window.localStorage.setItem('token', token);
+        attemptTokenLogin();
+    }
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        signIn(form)
+    }
+
 
     const handleChange = (prop) => (event) => {
         setForm({
