@@ -1,11 +1,89 @@
 @import "./tools/colors.less";
 @import "./tools/mixins.less";
 
-
 form {
-    border: 1px solid @secondary-color;
-    padding: 1em 2em;
-    display: flex;
-    flex-direction: column;
-    width: 60vw;
+  border: 2px solid @secondary-color;
+  padding: 2em 4em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
+
+.form-title {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-item > * {
+  align-self: flex-start;
+}
+
+.form-label {
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+.form-input {
+  -webkit-appearance: none;
+  width: 100%;
+  max-width: 425px;
+
+  //fix for ios/safari date fields
+  min-height: calc(0.9em + (0.8em * 2) + 0.6em);
+
+  padding: 0.8em;
+  font-size: 0.9em;
+  outline: none;
+  border: 1px solid @secondary-color;
+  border-radius: 4px;
+  background: #f9f9f9;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.form-input:focus {
+  background: #ffffff;
+}
+
+.form-input::placeholder {
+  color: @primary-text-color;
+}
+
+.form-input-error {
+  color: #d50000;
+  background: #fff8f8;
+  border-color: #d50000;
+}
+
+.form-input-error::placeholder {
+  color: #ffbfbf;
+}
+
+.form-error {
+  padding-top: 10px;
+  color: #d50000;
+  font-size: 0.9em;
+  visibility: hidden;
+}
+
+.form-input-error + .form-error {
+  visibility: visible;
+}
+
+.form-input-small {
+  max-width: 250px;
+}
+
+.form-input-xsmall {
+    max-width: 150px;
+  }
+
+textarea.form-input {
+    resize: none;
+    min-height: 200px;
+}
+
