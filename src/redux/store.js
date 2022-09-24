@@ -8,7 +8,7 @@ import singleUserSlice from "./users/singleUser";
 import ordersSlice from "./orders/orders";
 import singleOrderSlice from "./orders/singleOrder";
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     pets: petsSlice,
     singlePet: singlePetSlice,
