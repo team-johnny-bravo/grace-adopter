@@ -77,6 +77,7 @@ User.prototype.generateToken = async function () {
 User.byToken = async function (token) {
     try {
       const payload = await jwt.verify(token, process.env.JWT);
+    //   console.log('payload:', payload)
       if (payload) {
         //find user by payload which contains the user id
         const user = await User.findByPk(payload.id);
@@ -110,6 +111,12 @@ User.authenticate = async ({ userName, password }) => {
     error.status = 401;
     throw error;
 };
+
+User.addHook('beforeCreate', async(user)=> {
+    if(user.changed('password')){
+      user.password = await bcrypt.hash(user.password, 10);
+    }
+});
 
 //create authentication
 

@@ -25,7 +25,7 @@ export const addUserAsync = createAsyncThunk(
     isAdmin,
   }) => {
     try {
-      const { data } = await axios.post(`/api/users`, {
+      const { data } = await axios.post(`/api/users/signup`, {
         userName,
         password,
         email,

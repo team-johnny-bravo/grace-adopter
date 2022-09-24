@@ -9,11 +9,12 @@ const requireToken = async (req, res, next) => {
     try {
     //???
       const token = req.headers.authorization;
-    //   if(!token){
-    //     const error = Error("No token found");
-    //     error.status = 401;
-    //     throw error;
-    //   }
+    //   console.log('token, requireToken function:', token)
+      if(!token){
+        const error = Error("No token found!!!");
+        error.status = 401;
+        throw error;
+      }
       const user = await User.byToken(token);
       req.user = user;
       next();
@@ -113,12 +114,13 @@ router.post('/signup',  [
     }
 
     // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10);
+    // const hashedPassword = await bcrypt.hash(password, 10);
 
     // Save the password into the db
     const newUser = await User.create({
         email,
-        password: hashedPassword,
+        // password: hashedPassword,
+        password,
         userName,
         firstName,
         lastName,
@@ -128,15 +130,14 @@ router.post('/signup',  [
     await newUser.save()
 
     const token = await JWT.sign({ email }, process.env.JWT);
-    // const token = await JWT.sign({ email }, "nfb32")
     
     res.json({
         token
     })
 })
 
-//Signin /api/users/signin
-router.post("/signin", async (req, res, next) => {
+//SIGNIN  /api/users/auth/signin
+router.post("/auth/signin", async (req, res, next) => {
     try {
       const user = await User.authenticate(req.body);
       if(!user) res.sendStatus(404);
@@ -147,7 +148,8 @@ router.post("/signin", async (req, res, next) => {
     }
 });
 
-router.get('/signin', requireToken, async(req, res, next) => {
+//    /api/users/auth/signin
+router.get('/auth/signin', requireToken, async(req, res, next) => {
     if(req.user) {
       res.send(req.user);
     } else {
