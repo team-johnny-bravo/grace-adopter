@@ -124,58 +124,6 @@ const AdoptPet = () => {
           <span className="form-error">Enter a valid age</span>
         </div>
 
-        {/* <div id="why">
-          <ul>
-            <label className="form-label" htmlFor="why">
-              Why do you want to adopt a dog? Please check all that apply:
-            </label>
-          </ul>
-          <li>
-            <input
-              type="checkbox"
-              name="reason"
-              id="companion"
-              value="companion"
-            />
-            <label htmlFor="companion">Pet & Companion</label>
-          </li>
-
-          <li>
-            <input type="checkbox" name="reason" id="gift" value="gift" />
-            <label htmlFor="gift">Gift</label>
-          </li>
-
-          <li>
-            <input type="checkbox" name="reason" id="hunting" value="hunting" />
-            <label htmlFor="hunting">Hunting Dog</label>
-          </li>
-
-          <li>
-            <input
-              type="checkbox"
-              name="reason"
-              id="breeding"
-              value="breeding"
-            />
-            <label htmlFor="breeding">Breeding Dog</label>
-          </li>
-
-          <li>
-            <input type="checkbox" name="reason" id="guard" value="guard" />
-            <label htmlFor="guard">Guard Dog</label>
-          </li>
-
-          <li>
-            <input type="checkbox" name="reason" id="senior" value="senior" />
-            <label htmlFor="senior">For a Senior</label>
-          </li>
-
-          <li>
-            <input type="checkbox" name="reason" id="child" value="child" />
-            <label htmlFor="child">For a Child</label>
-          </li>
-        </div> */}
-
         <div className="form-item">
           <label htmlFor="allergies" className="form-label">
             Is Anyone in your Home Allergic to Animals?
@@ -240,7 +188,7 @@ const AdoptPet = () => {
             Enter a Message
           </label>
           <textarea
-            maxlength="500"
+            maxLength="500"
             className="form-input"
             name="message"
             id="message"
