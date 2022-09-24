@@ -31,7 +31,7 @@ const Signup = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log('sign up form:', form)
+        // console.log('sign up form:', form)
         dispatch(addUserAsync(form))
 
     }

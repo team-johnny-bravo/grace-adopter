@@ -389,6 +389,9 @@ const orders = [{
 },{
     isCart:false,
     items:['treats', 'toy']
+},{
+    isCart:false,
+    items:['laser toys', 'collar']
 }]
 
 const seed = async () => {
@@ -410,6 +413,15 @@ const seed = async () => {
         await Promise.all(orders.map(order => {
             return Order.create(order);
         })); 
+        const order1 = await Order.findByPk(1)
+        order1.update({userId: 1})
+        await order1.save()
+        const order2 = await Order.findByPk(2)
+        order2.update({userId: 1})
+        await order2.save()
+        const order3 = await Order.findByPk(3)
+        order3.update({userId: 1})
+        await order3.save()
 
         console.log('Seeding success!')
         db.close()
