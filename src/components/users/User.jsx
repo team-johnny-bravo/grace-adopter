@@ -8,18 +8,17 @@ const User = () => {
   const navigate = useNavigate();
 
   let [form, setForm] = useState({
-    username: "",
+    userName: "",
     password: "",
     checkPassword: "",
     email: "",
-    fname: "",
-    lname: "",
+    firstName: "",
+    lastName: "",
     address: "",
-    experience: 0,
+    yearsOfExperience: 0,
   });
 
   const handleChange = (prop) => (event) => {
-    console.log(event.target.value);
     setForm({
       ...form,
       [prop]: event.target.value,
@@ -27,60 +26,133 @@ const User = () => {
   };
 
   return (
-    <div className="userPage">
-      <h1>Edit your details</h1>
+    <div className="signupPage">
+      <div className="form-title">Edit your Details</div>
       <form>
-        <label htmlFor="email">Email Address:</label>
-        <input
-          name="email"
-          value={form.email || ""}
-          onChange={handleChange("email")}
-        />
-        <label htmlFor="username">Username:</label>
-        <input
-          name="username"
-          value={form.username || ""}
-          onChange={handleChange("username")}
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          name="password"
-          value={form.password || ""}
-          onChange={handleChange("password")}
-        />
-        <label htmlFor="checkPassword">Retype Password:</label>
-        <input
-          name="checkPassword"
-          value={form.checkPassword || ""}
-          onChange={handleChange("checkPassword")}
-        />
-        <label htmlFor="fname">First Name:</label>
-        <input
-          name="fname"
-          value={form.fname || ""}
-          onChange={handleChange("fname")}
-        />
-        <label htmlFor="lname">Last Name:</label>
-        <input
-          name="lname"
-          value={form.lname || ""}
-          onChange={handleChange("lname")}
-        />
-        <label htmlFor="address">Address:</label>
-        <input
-          name="address"
-          value={form.address || ""}
-          onChange={handleChange("address")}
-        />
-        <label htmlFor="experience">Years of Experience:</label>
-        <input
-          name="experience"
-          value={form.experience || ""}
-          onChange={handleChange("experience")}
-        />
-        <input type="submit" value={"User"} />
+        <div className="form-item">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input
+            type="email"
+            className="form-input"
+            name="email"
+            id="email"
+            placeholder="Email Address"
+            value={form.email || ""}
+            onChange={handleChange("email")}
+          />
+          <span className="form-error">Update email</span>
+        </div>
+        <div className="form-item">
+          <label htmlFor="username" className="form-label">
+            Username
+          </label>
+          <input
+            type="username"
+            className="form-input"
+            name="username"
+            id="username"
+            placeholder="Username"
+            value={form.userName || ""}
+            onChange={handleChange("userName")}
+          />
+          <span className="form-error">Update username</span>
+        </div>
+        <div className="form-item">
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
+          <input
+            type="password"
+            className="form-input"
+            name="password"
+            id="password"
+            placeholder="Password"
+            value={form.password || ""}
+            onChange={handleChange("password")}
+          />
+          <span className="form-error">Update password</span>
+        </div>
+        <div className="form-item">
+          <label htmlFor="checkPassword" className="form-label">
+            Retype Password
+          </label>
+          <input
+            type="password"
+            className="form-input"
+            name="checkPassword"
+            id="checkPassword"
+            placeholder="Retype Password"
+            value={form.checkPassword || ""}
+            onChange={handleChange("checkPassword")}
+          />
+          <span className="form-error">Retype password</span>
+        </div>
+        <div className="form-item">
+          <label htmlFor="firstName" className="form-label">
+            First Name
+          </label>
+          <input
+            className="form-input"
+            name="firstName"
+            id="firstName"
+            placeholder="First Name"
+            value={form.firstName || ""}
+            onChange={handleChange("firstName")}
+          />
+          <span className="form-error">Update first name</span>
+        </div>
+        <div className="form-item">
+          <label htmlFor="lastName" className="form-label">
+            Last Name
+          </label>
+          <input
+            className="form-input"
+            name="lastName"
+            id="lastName"
+            placeholder="Last Name"
+            value={form.lastName || ""}
+            onChange={handleChange("lastName")}
+          />
+          <span className="form-error">Update last name</span>
+        </div>
+        <div className="form-item">
+          <label htmlFor="address" className="form-label">
+            Address
+          </label>
+          <input
+            className="form-input"
+            name="address"
+            id="address"
+            placeholder="Address"
+            value={form.address || ""}
+            onChange={handleChange("address")}
+          />
+          <span className="form-error">Update address</span>
+        </div>
+        <div className="form-item">
+          <label htmlFor="experience" className="form-label">
+            Update experience
+          </label>
+          <input
+            type="number"
+            className="form-input form-input-small"
+            name="experience"
+            id="experience"
+            placeholder="Years of experience"
+            min="0"
+            value={form.yearsOfExperience || ""}
+            onChange={handleChange("yearsOfExperience")}
+          />
+          <span className="form-error">Enter a valid number</span>
+        </div>
+        <div id="button">
+          <button type="submit" id="submit">
+            Update
+          </button>
+        </div>
       </form>
-      <button onClick={() => navigate("/login")}>Login</button>
     </div>
   );
 };

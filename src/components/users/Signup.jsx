@@ -21,7 +21,6 @@ const Signup = () => {
   });
 
   const handleChange = (prop) => (event) => {
-    // console.log(event)
     setForm({
       ...form,
       [prop]: event.target.value,
