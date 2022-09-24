@@ -70,7 +70,7 @@ const Login = () => {
             placeholder="username"
             onChange={handleChange("userName")}
           />
-          <span className="form-error">Please enter a name</span>
+          <span className="form-error">Please enter your username</span>
         </div>
         <div className="form-item">
           <label htmlFor="password" className="form-label">
@@ -84,7 +84,7 @@ const Login = () => {
             placeholder="password"
             onChange={handleChange("password")}
           />
-          <span className="form-error">Please enter a name</span>
+          <span className="form-error">Please enter your password</span>
         </div>
         <div id="button">
           <button type="submit" id="submit">
