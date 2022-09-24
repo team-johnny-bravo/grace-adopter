@@ -55,8 +55,9 @@
   src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvC70w-.ttf) format('truetype');
 }
 form {
-  border: 1px solid #F19953;
+  border: 2px solid #F19953;
   padding: 1em 2em;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   width: 60vw;
