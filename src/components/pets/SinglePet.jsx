@@ -9,7 +9,7 @@ const SinglePet = () => {
 
   const { petId } = useParams();
 
-  const [form, setForm] = React.useState({
+  const [pet, setPet] = React.useState({
     petId: petId,
     age: "",
     image: "",
@@ -23,7 +23,7 @@ const SinglePet = () => {
   useEffect(() => {
     const getData = async () => {
       const petData = await axios.get(`/api/pets/${petId}`);
-      setForm({ ...petData.data });
+      setPet({ ...petData.data });
     };
     getData();
   }, []);
@@ -34,8 +34,8 @@ const SinglePet = () => {
   };
 
   const handleChange = (prop) => (e) => {
-    setForm({
-      ...form,
+    setPet({
+      ...pet,
       [prop]: e.target.value,
     });
   };
@@ -56,44 +56,44 @@ const SinglePet = () => {
     return (
       <div>
         <h1>Update Pet</h1>
-        <form>
+        <pet>
           <label htmlFor="name">Name:</label>
           <input
             name="name"
-            value={form.name || ""}
+            value={pet.name || ""}
             onChange={handleChange("name")}
           />{" "}
           <br />
           <label htmlFor="age">Age:</label>
           <input
             name="age"
-            value={form.age || ""}
+            value={pet.age || ""}
             onChange={handleChange("age")}
           />{" "}
           <br />
           <label htmlFor="image">Image URL:</label>
           <input
             name="image"
-            value={form.image || ""}
+            value={pet.image || ""}
             onChange={handleChange("image")}
           />{" "}
           <br />
           <label htmlFor="description">Description:</label>
           <input
             name="description"
-            value={form.description || ""}
+            value={pet.description || ""}
             onChange={handleChange("description")}
           />{" "}
           <br />
           <label htmlFor="favoriteToys">Favorite Toys:</label>
           <input
             name="favoriteToys"
-            value={form.favoriteToys || ""}
+            value={pet.favoriteToys || ""}
             onChange={handleChange("favoriteToys")}
           />{" "}
           <br />
           <label htmlFor="species">Species:</label>
-          <select name="species" id={form.species}>
+          <select name="species" id={pet.species}>
             <option value="dog">Dog</option>
             <option value="cat">Cat</option>
             <option value="bird">Bird</option>
@@ -101,7 +101,7 @@ const SinglePet = () => {
           </select>
           <br />
           <label htmlFor="collarSize">Collar Size:</label>
-          <select name="collarSize" id={form.collarSize}>
+          <select name="collarSize" id={pet.collarSize}>
             <option value="xxs">XXS - Up to 5 lbs.</option>
             <option value="xs">XS - 5-10 lbs.</option>
             <option value="s">S - 10-25 lbs.</option>
@@ -111,22 +111,22 @@ const SinglePet = () => {
           </select>
           <br />
           <input type="submit" value={"Update"} />
-        </form>
+        </pet>
       </div>
     );
   } else {
     return (
       <div>
         <div>
-          <img src={form.image} alt={form.name} />
+          <img src={pet.image} alt={pet.name} />
         </div>
         <div>
           <div>
-            <h1>{form.name}</h1>
-            <p className="singlePetAge">Age: {form.age}</p>
+            <h1>{pet.name}</h1>
+            <p className="singlePetAge">Age: {pet.age}</p>
             <h3>Description: </h3>
             <br />
-            <p>{form.description}</p>
+            <p>{pet.description}</p>
             <h3>Favorite Toys:</h3>
             <Toys />
           </div>
