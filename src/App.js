@@ -16,6 +16,7 @@ import { fetchPetsAsync } from "./redux/pets/pets.js";
 import { fetchProductsAsync } from "./redux/products/products.js";
 import { fetchUsersAsync } from "./redux/users/users.js";
 import { fetchOrdersAsync } from "./redux/orders/orders.js";
+import Checkout from "./components/general/Checkout.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ function App() {
           <Route path={"/addpet"} element={<AddPet />} />
           <Route path={"/pets/:petId"} element={<SinglePet />} />
           <Route path={"/adopt"} element={<AdoptPet />} />
+          <Route path={"/checkout"} element={<Checkout />} />
           <Route path={"/user/:userId"} element={<User />} />
         </Routes>
       </div>

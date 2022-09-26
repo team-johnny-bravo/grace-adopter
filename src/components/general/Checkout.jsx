@@ -27,8 +27,7 @@ const Checkout = () => {
                 <input type={submit}>Complete Checkout</input>      
             </div>
         </div>
-​
   )
 }
-​
+
 export default Checkout
