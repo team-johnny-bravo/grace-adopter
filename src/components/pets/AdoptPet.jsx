@@ -1,6 +1,11 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 const AdoptPet = () => {
+  const location = useLocation();
+
+  const pet = location.state.pet
+  
   return (
     <div>
       <form id="survey-form">
@@ -19,7 +24,9 @@ const AdoptPet = () => {
             className="form-input"
             name="animal-name"
             id="animal-name"
-            placeholder="Animal's Name"
+            readOnly
+            value={pet.name}
+            placeholder={pet.name}
           />
           <span className="form-error">Please enter a name</span>
         </div>
