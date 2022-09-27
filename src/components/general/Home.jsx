@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { selectPets } from "../../redux/pets/pets";
 import { useSelector } from "react-redux";
 import Pet from "../pets/SinglePetObject.jsx"
+import PayButton from "../pets/PayButton.jsx";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -19,10 +20,11 @@ const Home = () => {
         />
       </div>
       <div className="pets">
-        {pets.map((pet) => 
+        {pets.map((pet) =>
           <Pet data={pet} key={pet.id} />
         )}
       </div>
+      <PayButton items={pets}/>
     </div>
   );
 };
