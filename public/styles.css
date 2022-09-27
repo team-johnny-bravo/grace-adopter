@@ -60,6 +60,7 @@ form {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  min-width: 40vw;
 }
 .form-title {
   font-size: 2em;

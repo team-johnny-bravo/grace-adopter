@@ -6,7 +6,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   const user = {
     name: "Jeff",
-    isAdmin: false,
+    isAdmin: true,
   };
 
   return (
