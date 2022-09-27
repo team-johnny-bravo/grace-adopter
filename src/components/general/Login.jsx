@@ -40,6 +40,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     signIn(form);
+    // navigate('/order-history')
   };
 
   const handleChange = (prop) => (event) => {
@@ -97,13 +98,22 @@ const Login = () => {
     </div>
   ) : (
     <div>
-      Hello {auth.userName}! Here is your order history:
-      <ul style={{ textAlign: "left" }}>
-        {auth.orders.map((order, orderIdx) => (
-          <li key={orderIdx}>{order.items.join(", ")}</li>
-        ))}
-      </ul>
-      <Link to={`/user/:userId`}>Edit profile</Link>
+      <h1>Hello {auth.userName}! Here is your order history:</h1>
+      <h3>
+        <ol style={{ textAlign: "left" }}>
+          {auth.orders.map((order, orderIdx) => (
+            <li key={orderIdx}>
+              <ul>
+                {order.items.map((item, itemIdx) =>
+                  <li key={itemIdx}>{item.name + ' $' + item.price + ' x ' + item.quantity}</li>
+                )}
+              </ul>
+            </li>
+          ))}
+        </ol>
+      </h3>
+      {/* <Link to={`/user/:userId`}>Edit profile</Link> */}
+      <Link to={`/user/${auth.id}`}>Edit profile</Link>
       <button onClick={handleLogout}>Log out</button>
     </div>
   );

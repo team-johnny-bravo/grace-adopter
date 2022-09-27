@@ -2,11 +2,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ user }) => {
   const navigate = useNavigate();
-  const user = {
-    name: "Jeff",
-    isAdmin: true,
+  // const user = {
+  //   name: "Jeff",
+  //   isAdmin: true,
+  // };
+
+  const handleLogout = () => {
+    window.localStorage.removeItem("token");
+    // setAuth({});
   };
 
   return (
@@ -21,10 +26,13 @@ const NavBar = () => {
         {user.isAdmin ? (
           <button onClick={() => navigate("/addpet")}>Add Pet</button>
         ) : null}
-        {user.name ? (
-          <button onClick={() => navigate("/user/:userId")}>
-            Welcome, {user.name}
-          </button>
+        {user.userName ? (
+          <>
+            <button onClick={() => navigate("/user/:userId")}>
+              Welcome, {user.userName}
+            </button>
+            <button onClick={handleLogout}>Log out</button>
+          </>
         ) : (
           <button onClick={() => navigate("/login")}>Login / Signup</button>
         )}
