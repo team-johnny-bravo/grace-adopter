@@ -60,6 +60,7 @@ form {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  min-width: 40vw;
 }
 .form-title {
   font-size: 2em;
@@ -229,6 +230,21 @@ textarea.form-input {
 }
 .about img {
   width: 200px;
+}
+.pet-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pet-card > * {
+  margin: 2em;
+}
+.pet-photo img {
+  width: 30vw;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  border: 10px solid #F19953;
+  border-radius: 20px;
 }
 * {
   box-sizing: border-box;

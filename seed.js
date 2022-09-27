@@ -351,15 +351,18 @@ const pets =[{
 const products =[{
     name: 'leash',
     price: 10.00,
+    quantity: 20,
     size: 'small',
     description: 'Only for puppy!'
 },{
     name: 'treats',
     price: 5.00,
+    quantity: 30,
     description: 'Only for kitty!'    
 },{
     name: 'toy',
     price: 15.00,
+    quantity: 10,
     description: 'Toys for all!'
 }]
 
@@ -383,15 +386,31 @@ const users =[{
     isAdmin: true    
 }]
 
+// const orders = [{
+//     isCart:true,
+//     items:['leash', 'treats']
+// },{
+//     isCart:false,
+//     items:['treats', 'toy']
+// },{
+//     isCart:false,
+//     items:['laser toys', 'collar']
+// }]
 const orders = [{
-    isCart:true,
-    items:['leash', 'treats']
+    isCart:false,
+    items:[{name:'Leash', quantity:1, price:10},
+           {name:'Treats', quantity:1, price:15}
+          ]
 },{
     isCart:false,
-    items:['treats', 'toy']
+    items:[{name:'Treats', quantity:1, price:15},
+           {name:'Toy', quantity:1, price:20}
+          ]
 },{
     isCart:false,
-    items:['laser toys', 'collar']
+    items:[{name:'Laser toy', quantity:1, price:8},
+           {name:'Collar', quantity:1, price:18}
+          ]
 }]
 
 const seed = async () => {

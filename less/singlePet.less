@@ -1,0 +1,18 @@
+@import "./tools/colors.less";
+@import "./tools/mixins.less";
+
+.pet-card {
+  .flexCenter();
+}
+
+.pet-card > * {
+  margin: 2em;
+}
+
+.pet-photo img {
+  width: 30vw;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  border: 10px solid @secondary-color;
+  border-radius: 20px;
+}
