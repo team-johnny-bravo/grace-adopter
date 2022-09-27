@@ -1,13 +1,18 @@
-const port = process.env.PORT || 3000;
-const app = require('./app');
-const {db} = require('./db');
+const { Client } = require('pg');
 
-const init = async() => {
-    await db.sync();
-    app.listen(port, ()=>console.log(`listening on port ${port}`))
-};
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
 
-init();
+client.connect();
 
-
-//dont touch me!
+client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
