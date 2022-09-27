@@ -29,7 +29,7 @@ const SinglePet = () => {
 
   const user = {
     name: "Jeff",
-    isAdmin: false,
+    isAdmin: true,
   };
 
   const handleChange = (prop) => (e) => {
@@ -39,12 +39,10 @@ const SinglePet = () => {
     });
   };
 
-  const Toys = (pet) => {
-    if (pet.favoriteToys) {
-      <p>{pet.favoriteToys.join(", ")}</p>;
-    } else {
-      <p>None</p>;
-    }
+  const handleUpdate = async (e) => {
+    e.preventDefault()
+    const updatedPet = await axios.put(`/api/pets/${petId}`, form);
+    console.log(updatedPet);
   };
 
   const handleAdopt = () => {
@@ -55,7 +53,7 @@ const SinglePet = () => {
     return (
       <div>
         <h1>Update Pet</h1>
-        <form>
+        <form onSubmit={handleUpdate}>
           <div className="form-item">
             <label htmlFor="name" className="form-label">
               Update Name
