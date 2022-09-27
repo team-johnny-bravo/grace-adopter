@@ -57,6 +57,7 @@ export const deleteUserAsync = createAsyncThunk(
 export const editUserAsync = createAsyncThunk(
   "editUser",
   async ({
+    userId,
     userName,
     password,
     email,
@@ -66,7 +67,7 @@ export const editUserAsync = createAsyncThunk(
     yearsOfExperience,
     isAdmin,
   }) => {
-    const { data } = await axios.put(`/api/users/${id}`, {
+    const { data } = await axios.put(`/api/users/${userId}`, {
       userName,
       password,
       email,

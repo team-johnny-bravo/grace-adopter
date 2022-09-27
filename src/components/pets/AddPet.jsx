@@ -11,7 +11,7 @@ const AddPet = () => {
   let [form, setForm] = useState({
     name: "",
     age: 0,
-    image: null,
+    // image: null,
     description: "",
     favoriteToys: "",
     species: null,

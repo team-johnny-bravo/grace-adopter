@@ -3,9 +3,11 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import { setCurrentUser } from "../../redux/users/currentUser";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   let [form, setForm] = useState({ userName: "", password: "" });
@@ -24,6 +26,12 @@ const Login = () => {
       const { data: user } = await axios.get(`/api/users/${id}`);
       // console.log('user:', user)
       setAuth(user);
+
+      // await axios.get('/api/users',{
+      //   headers: {
+      //     authorization: token,
+      //   },
+      // })
     }
   };
   const signIn = async (credentials) => {
@@ -41,6 +49,7 @@ const Login = () => {
     event.preventDefault();
     signIn(form);
     // navigate('/order-history')
+    dispatch(setCurrentUser({ test: "test" }));
   };
 
   const handleChange = (prop) => (event) => {
@@ -104,9 +113,11 @@ const Login = () => {
           {auth.orders.map((order, orderIdx) => (
             <li key={orderIdx}>
               <ul>
-                {order.items.map((item, itemIdx) =>
-                  <li key={itemIdx}>{item.name + ' $' + item.price + ' x ' + item.quantity}</li>
-                )}
+                {order.items.map((item, itemIdx) => (
+                  <li key={itemIdx}>
+                    {item.name + " $" + item.price + " x " + item.quantity}
+                  </li>
+                ))}
               </ul>
             </li>
           ))}
