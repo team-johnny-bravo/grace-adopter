@@ -22,7 +22,7 @@ Our project involves an animal adoption website that takes users from browsing l
 ### As a customer/visitor, I want to be able to:
 - [ ] access a deployed version of the website so I can browse and purchase products.
 - [X] view all available products so I can pick from a variety.
-- [ ] view a single product so I can see more details.
+- [X] view a single product so I can see more details.
 - [ ] add a product to my cart so I can collect my desired products in one place.
 - [ ] edit my cart if I change my mind:
   - change the quantity of a product in my cart.
@@ -41,7 +41,7 @@ Our project involves an animal adoption website that takes users from browsing l
 
 ### As an administrator, I want to be able to:
 
-- [ ] have validated data to ensure reliability.
+- [X] have validated data to ensure reliability.
   - _i.e. each customer that creates an account should only be able to do so once with a single email address._
 - [ ] have full rights to make backend requests to add, edit, and remove products.
   - _No one else should have access._
@@ -50,7 +50,7 @@ Our project involves an animal adoption website that takes users from browsing l
 
 ### As an engineer, I want to:
 
-[ ] have a well-seeded database so that I am able to simulate a number of different scenarios for the user stories below.
+[X] have a well-seeded database so that I am able to simulate a number of different scenarios for the user stories below.
   - _By doing this, you really set yourselves up to tackle many of the points throughout the tiers. In the long run, this will save you, potentially, tons of time._
   - _For example, seed hundreds of products with dummy data so that when you get to the “pagination” user story, you won’t have to worry about adding more products._
   - _Likewise, add a bunch of users with products in their carts so editing the cart can be worked on without already having the “add to cart” functionality built out._

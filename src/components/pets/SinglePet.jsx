@@ -29,7 +29,7 @@ const SinglePet = () => {
 
   const user = {
     name: "Jeff",
-    isAdmin: false,
+    isAdmin: true,
   };
 
   const handleChange = (prop) => (e) => {
