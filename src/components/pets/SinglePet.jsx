@@ -14,7 +14,6 @@ const SinglePet = () => {
     age: "",
     image: "",
     description: "",
-    favoriteToys: "",
     species: "",
     collarSize: "",
     status: "",
@@ -30,7 +29,7 @@ const SinglePet = () => {
 
   const user = {
     name: "Jeff",
-    isAdmin: true,
+    isAdmin: false,
   };
 
   const handleChange = (prop) => (e) => {
@@ -48,8 +47,8 @@ const SinglePet = () => {
     }
   };
 
-  const Navigate = () => {
-    navigate("/adopt");
+  const handleAdopt = () => {
+    navigate("/adopt", { state: form });
   };
 
   if (user.isAdmin) {
@@ -106,7 +105,6 @@ const SinglePet = () => {
               Update Description
             </label>
             <textarea
-              maxLength="500"
               className="form-input"
               name="description"
               id="description"
@@ -177,8 +175,8 @@ const SinglePet = () => {
     );
   } else {
     return (
-      <div>
-        <div>
+      <div className="pet-card">
+        <div className="pet-photo">
           <img src={form.image} alt={form.name} />
         </div>
         <div>
@@ -186,12 +184,11 @@ const SinglePet = () => {
             <h1>{form.name}</h1>
             <p className="singlePetAge">Age: {form.age}</p>
             <h3>Description: </h3>
-            <br />
             <p>{form.description}</p>
             <h3>Favorite Toys:</h3>
-            <Toys />
+            <p>{form.favoriteToys}</p>
           </div>
-          <button onClick={Navigate}>Adopt Me!</button>
+          <button onClick={handleAdopt}>Adopt Me!</button>
         </div>
       </div>
     );
