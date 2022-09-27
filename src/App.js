@@ -20,6 +20,7 @@ import CheckoutSuccess from "./components/general/CheckoutSuccess.jsx";
 import axios from "axios";
 
 
+import Checkout from "./components/general/Checkout.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -58,6 +59,7 @@ function App() {
           <Route path={"/addpet"} element={<AddPet />} />
           <Route path={"/pets/:petId"} element={<SinglePet />} />
           <Route path={"/adopt"} element={<AdoptPet />} />
+          <Route path={"/checkout"} element={<Checkout />} />
           <Route path={"/user/:userId"} element={<User />} />
           <Route path={"/checkout-success"} element={<CheckoutSuccess/>}/>
         </Routes>

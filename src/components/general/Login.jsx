@@ -79,6 +79,7 @@ const Login = () => {
           </label>
           <input
             className="form-input"
+            type="password"
             name="password"
             id="password"
             value={form.password || ""}

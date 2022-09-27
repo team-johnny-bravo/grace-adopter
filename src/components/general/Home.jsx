@@ -1,15 +1,20 @@
 //rafce
 import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { selectPets } from "../../redux/pets/pets";
-import { useSelector } from "react-redux";
-import Pet from "../pets/SinglePetObject.jsx"
 import PayButton from "../pets/PayButton.jsx";
+import { fetchPetsAsync, selectPets } from "../../redux/pets/pets";
+import { useDispatch, useSelector } from "react-redux";
+import Pet from "../pets/SinglePetObject.jsx";
+import { useEffect } from "react";
 
 const Home = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const pets = useSelector(selectPets);
+
+  useEffect(() => {
+    dispatch(fetchPetsAsync());
+  }, []);
 
   return (
     <div className="home">
