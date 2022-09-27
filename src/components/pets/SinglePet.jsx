@@ -40,9 +40,13 @@ const SinglePet = () => {
   };
 
   const handleUpdate = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const updatedPet = await axios.put(`/api/pets/${petId}`, form);
-    console.log(updatedPet);
+  };
+
+  const handleDelete = async () => {
+    await axios.delete(`/api/pets/${petId}`);
+    navigate("/");
   };
 
   const handleAdopt = () => {
@@ -166,6 +170,9 @@ const SinglePet = () => {
           <div id="button">
             <button type="submit" id="submit">
               Update
+            </button>
+            <button onClick={handleDelete} id="submit">
+              Delete
             </button>
           </div>
         </form>
