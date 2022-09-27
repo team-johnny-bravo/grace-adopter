@@ -1,14 +1,14 @@
 {
-  "name": "final-project",
-  "version": "0.0.1",
-  "description": "A review time project",
-  "main": "index.js",
   "scripts": {
-    "start": "npm run seed & npm run build-watch & npm run start-server ",
+    "start": "npm public/index.html",
     "build-watch": "webpack -w",
     "start-server": "JWT=nfb32 nodemon --watch server -e js,html server/index.js",
     "seed": "node seed.js"
   },
+  "name": "final-project",
+  "version": "0.0.1",
+  "description": "A review time project",
+  "main": "index.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
