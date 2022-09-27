@@ -29,7 +29,7 @@ const SinglePet = () => {
 
   const user = {
     name: "Jeff",
-    isAdmin: true,
+    isAdmin: false,
   };
 
   const handleChange = (prop) => (e) => {
@@ -50,7 +50,9 @@ const SinglePet = () => {
   };
 
   const handleAdopt = () => {
-    navigate("/adopt", { state: form });
+    // navigate("/adopt", { state: form });
+    // navigate("/adopt", { state: form, petId: petId });
+    navigate(`/adopt/${petId}`, { state: form });
   };
 
   if (user.isAdmin) {

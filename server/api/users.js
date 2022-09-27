@@ -9,7 +9,6 @@ const requireToken = async (req, res, next) => {
     try {
     //???
       const token = req.headers.authorization;
-    //   console.log('token, requireToken function:', token)
       if(!token){
         const error = Error("No token found!!!");
         error.status = 401;
@@ -24,7 +23,8 @@ const requireToken = async (req, res, next) => {
 };
 
 // GET /api/users
-router.get('/', async (req,res, next)=>{
+// router.get('/', requireToken, async (req,res, next)=>{
+router.get('/',  async (req,res, next)=>{
     try {
         const users = await User.findAll()
         res.send(users)

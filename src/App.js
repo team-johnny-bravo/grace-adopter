@@ -58,7 +58,8 @@ function App() {
           <Route path={"/signup"} element={<Signup />} />
           <Route path={"/addpet"} element={<AddPet />} />
           <Route path={"/pets/:petId"} element={<SinglePet />} />
-          <Route path={"/adopt"} element={<AdoptPet />} />
+          {/* <Route path={"/adopt"} element={<AdoptPet />} /> */}
+          <Route path={"/adopt/:petId"} element={<AdoptPet />} />
           <Route path={"/checkout"} element={<Checkout />} />
           <Route path={"/user/:userId"} element={<User />} />
           <Route path={"/checkout-success"} element={<CheckoutSuccess/>}/>

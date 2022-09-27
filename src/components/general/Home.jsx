@@ -1,7 +1,6 @@
 //rafce
 import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import PayButton from "../pets/PayButton.jsx";
 import { fetchPetsAsync, selectPets } from "../../redux/pets/pets";
 import { useDispatch, useSelector } from "react-redux";
 import Pet from "../pets/SinglePetObject.jsx";
@@ -29,7 +28,6 @@ const Home = () => {
           <Pet data={pet} key={pet.id} />
         )}
       </div>
-      <PayButton items={pets}/>
     </div>
   );
 };

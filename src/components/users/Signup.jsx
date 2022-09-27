@@ -31,6 +31,7 @@ const Signup = () => {
     event.preventDefault();
     // console.log('sign up form:', form)
     dispatch(addUserAsync(form));
+    navigate('/login')
   };
 
   return (

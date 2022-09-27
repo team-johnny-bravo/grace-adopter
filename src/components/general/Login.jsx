@@ -24,6 +24,12 @@ const Login = () => {
       const { data: user } = await axios.get(`/api/users/${id}`);
       // console.log('user:', user)
       setAuth(user);
+
+      // await axios.get('/api/users',{
+      //   headers: {
+      //     authorization: token,
+      //   },
+      // })
     }
   };
   const signIn = async (credentials) => {

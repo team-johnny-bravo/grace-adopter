@@ -28,7 +28,8 @@ const NavBar = ({ user }) => {
         ) : null}
         {user.userName ? (
           <>
-            <button onClick={() => navigate("/user/:userId")}>
+            {/* <button onClick={() => navigate("/user/:userId")}> */}
+            <button onClick={() => navigate(`/user/${user.id}`)}>
               Welcome, {user.userName}
             </button>
             <button onClick={handleLogout}>Log out</button>
