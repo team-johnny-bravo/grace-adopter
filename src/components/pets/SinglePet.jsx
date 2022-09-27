@@ -27,11 +27,6 @@ const SinglePet = () => {
     getData();
   }, []);
 
-  const user = {
-    name: "Jeff",
-    isAdmin: true,
-  };
-
   const handleChange = (prop) => (e) => {
     setForm({
       ...form,
