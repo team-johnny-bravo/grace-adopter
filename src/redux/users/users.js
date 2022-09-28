@@ -4,8 +4,16 @@ import axios from "axios";
 const initialState = [];
 
 export const fetchUsersAsync = createAsyncThunk("allUsers", async () => {
+  
+  const token = window.localStorage.getItem("token");
+
   try {
-    const { data } = await axios.get(`/api/users`);
+    // const { data } = await axios.get(`/api/users`);
+    const { data } = await axios.get(`/api/users`, {
+      headers: {
+        authorization: token,
+      },
+    });
     return data;
   } catch (err) {
     console.log(err);
