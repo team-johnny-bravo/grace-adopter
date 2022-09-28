@@ -386,16 +386,6 @@ const users =[{
     isAdmin: true    
 }]
 
-// const orders = [{
-//     isCart:true,
-//     items:['leash', 'treats']
-// },{
-//     isCart:false,
-//     items:['treats', 'toy']
-// },{
-//     isCart:false,
-//     items:['laser toys', 'collar']
-// }]
 const orders = [{
     isCart:false,
     items:[{name:'Leash', quantity:1, price:10},

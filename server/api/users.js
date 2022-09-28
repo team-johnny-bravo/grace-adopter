@@ -9,6 +9,8 @@ const requireToken = async (req, res, next) => {
     try {
     //???
       const token = req.headers.authorization;
+    //   const token = window.localStorage.getItem('token')
+     console.log(req.headers)
       if(!token){
         const error = Error("No token found!!!");
         error.status = 401;

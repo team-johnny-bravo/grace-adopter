@@ -1,4 +1,3 @@
-//rafce
 import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchPetsAsync, selectPets } from "../../redux/pets/pets";
@@ -24,7 +23,7 @@ const Home = () => {
         />
       </div>
       <div className="pets">
-        {pets.map((pet) =>
+        {[...pets].sort((a, b) => a.id - b.id).map((pet) =>
           <Pet data={pet} key={pet.id} />
         )}
       </div>

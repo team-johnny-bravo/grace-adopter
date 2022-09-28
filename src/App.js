@@ -26,31 +26,32 @@ function App() {
   console.dir(state);
   const dispatch = useDispatch();
 
-  let [auth, setAuth] = useState({});
-  const attemptTokenLogin = async () => {
-    const token = window.localStorage.getItem("token");
+  // let [auth, setAuth] = useState({});
+  // const attemptTokenLogin = async () => {
+  //   const token = window.localStorage.getItem("token");
 
-    if (token) {
-      const { data: authUser } = await axios.get("/api/users/auth/signin", {
-        headers: {
-          authorization: token,
-        },
-      });
-      setAuth(authUser);
-    }
-  };
+  //   if (token) {
+  //     const { data: authUser } = await axios.get("/api/users/auth/signin", {
+  //       headers: {
+  //         authorization: token,
+  //       },
+  //     });
+  //     setAuth(authUser);
+  //   }
+  // };
 
   useEffect(() => {
     dispatch(fetchPetsAsync());
     dispatch(fetchProductsAsync());
     dispatch(fetchUsersAsync());
     dispatch(fetchOrdersAsync());
-    attemptTokenLogin();
+    // attemptTokenLogin()
   }, [dispatch]);
 
   return (
     <>
-      <NavBar user={auth} />
+      {/* <NavBar user={auth}/> */}
+      <NavBar />
       <div id="main">
         <Routes>
           <Route index element={<Home />} />

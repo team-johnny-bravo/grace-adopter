@@ -32,7 +32,7 @@ const User = () => {
     event.preventDefault()
     console.log(form)
     dispatch(editUserAsync(form))
-    // editUserAsync(form)
+    navigate('/')
   }
 
   return (
