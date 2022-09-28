@@ -1,5 +1,4 @@
-//rafce
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import AdoptPet from "./AdoptPet.jsx";
@@ -27,10 +26,21 @@ const SinglePet = () => {
     getData();
   }, []);
 
-  const user = {
-    name: "Jeff",
-    isAdmin: false,
+  let [auth, setAuth] = useState({});
+  const attemptTokenLogin = async () => {
+    const token = window.localStorage.getItem("token");
+    if (token) {
+      const { data: authUser } = await axios.get("/api/users/auth/signin", {
+        headers: {
+          authorization: token,
+        },
+      });
+      setAuth(authUser);
+    }
   };
+  useEffect(() => {
+    attemptTokenLogin()
+  }, []);
 
   const handleChange = (prop) => (e) => {
     setForm({
@@ -42,6 +52,7 @@ const SinglePet = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     const updatedPet = await axios.put(`/api/pets/${petId}`, form);
+    navigate("/");
   };
 
   const handleDelete = async () => {
@@ -50,12 +61,11 @@ const SinglePet = () => {
   };
 
   const handleAdopt = () => {
-    // navigate("/adopt", { state: form });
-    // navigate("/adopt", { state: form, petId: petId });
     navigate(`/adopt/${petId}`, { state: form });
   };
 
-  if (user.isAdmin) {
+  // if (user.isAdmin) {
+  if (auth.isAdmin) {
     return (
       <div>
         <h1>Update Pet</h1>

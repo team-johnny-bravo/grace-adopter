@@ -3,13 +3,16 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import { useSelector, useDispatch } from 'react-redux'
+import { selectSingleUser, fetchSingleUser } from "../../redux/users/singleUser";
 
 const Login = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   let [form, setForm] = useState({ userName: "", password: "" });
-  let [auth, setAuth] = useState({});
+  // let [auth, setAuth] = useState({});-------------
+  const auth = useSelector(selectSingleUser)
 
   const attemptTokenLogin = async () => {
     const token = window.localStorage.getItem("token");
@@ -22,14 +25,8 @@ const Login = () => {
       });
       const { id } = auth;
       const { data: user } = await axios.get(`/api/users/${id}`);
-      // console.log('user:', user)
-      setAuth(user);
-
-      // await axios.get('/api/users',{
-      //   headers: {
-      //     authorization: token,
-      //   },
-      // })
+      // setAuth(user);--------------
+      dispatch(fetchSingleUser(user.id))
     }
   };
   const signIn = async (credentials) => {
@@ -58,7 +55,9 @@ const Login = () => {
 
   const handleLogout = () => {
     window.localStorage.removeItem("token");
-    setAuth({});
+    // setAuth({});--------------------------
+    dispatch(fetchSingleUser(0))
+    navigate('/')
   };
 
   return !auth.id ? (

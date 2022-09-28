@@ -1,18 +1,48 @@
-//rafce
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectSingleUser, fetchSingleUser } from "../../redux/users/singleUser";
 
-const NavBar = ({ user }) => {
+
+// const NavBar = ({ user }) => {
+const NavBar = () => {
+
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   // const user = {
   //   name: "Jeff",
   //   isAdmin: true,
   // };
 
+  const user = useSelector(selectSingleUser)
+  // let [user, setUser] = useState({});
+  const attemptTokenLogin = async () => {
+    const token = window.localStorage.getItem("token");
+    if (token) {
+      const { data: authUser } = await axios.get("/api/users/auth/signin", {
+        headers: {
+          authorization: token,
+        },
+      });
+      // setUser(authUser);
+      dispatch(fetchSingleUser(authUser.id))
+    } else {
+      dispatch(fetchSingleUser(0))
+    }
+  };
+
+  useEffect(() => {
+    attemptTokenLogin()
+  }, []);
+
   const handleLogout = () => {
     window.localStorage.removeItem("token");
-    // setAuth({});
+    // setUser({});
+    dispatch(fetchSingleUser(0))
+    navigate('/')
   };
+
 
   return (
     <div className="navbar">
