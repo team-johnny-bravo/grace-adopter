@@ -1,13 +1,17 @@
 import React from "react";
 // import { useDispatch } from 'react-redux';
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { editUserAsync } from '../../redux/users/users'
+import { useDispatch } from 'react-redux'
 
 const User = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { userId } = useParams()
 
   let [form, setForm] = useState({
+    userId,
     userName: "",
     password: "",
     checkPassword: "",
@@ -24,6 +28,12 @@ const User = () => {
       [prop]: event.target.value,
     });
   };
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(form)
+    dispatch(editUserAsync(form))
+    navigate('/')
+  }
 
   return (
     <div className="signupPage">
@@ -148,7 +158,8 @@ const User = () => {
           <span className="form-error">Enter a valid number</span>
         </div>
         <div id="button">
-          <button type="submit" id="submit">
+          {/* <button type="submit" id="submit"> */}
+          <button type="submit" id="submit" onClick={handleSubmit}>
             Update
           </button>
         </div>
