@@ -1,13 +1,23 @@
 import React from "react";
-// import { useDispatch } from 'react-redux';
-import { useState } from "react";
+import { useDispatch, useSelector} from 'react-redux';
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { addUserAsync } from "../../redux/users/users";
-import { useDispatch } from "react-redux";
+import { addUserAsync, selectUsers } from "../../redux/users/users";
+// import { useDispatch } from "react-redux";
+// import { fromByteArray } from "ipaddr.js";
+import { fetchUsersAsync } from "../../redux/users/users";
+
+
+const validator = require("email-validator");
 
 const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const users = useSelector(selectUsers);
+  useEffect(() => {
+    dispatch(fetchUsersAsync());
+  }, []);
 
   let [form, setForm] = useState({
     userName: "",
@@ -27,9 +37,46 @@ const Signup = () => {
     });
   };
 
+  // console.log("users bufore submit", users);
   const handleSubmit = (event) => {
     event.preventDefault();
     // console.log('sign up form:', form)
+
+    if(!validator.validate(form.email)){
+      alert("Please fill out the right email");
+      return;
+    }
+    if(form.userName.length === 0 || form.userName.startsWith(" ")){
+      alert("Please fill the Username");
+      return;
+    }
+    if(form.password.length < 6){
+      alert("Password length must be at least 6");
+      return;
+    }
+    if(form.checkPassword !== form.password){
+      alert("Retype Password not matched");
+      return;
+    }
+    if(form.firstName.length === 0 ||form.firstName.startsWith(" ")){
+      alert("Please fill the First Name");
+      return;
+    }
+    if(form.lastName.length === 0 ||form.lastName.startsWith(" ")){
+      alert("Please fill the last Name");
+      return;
+    }
+    if(form.address.length === 0){
+      alert("Please fill the address");
+      return;
+    }
+    const existed = users.filter(user =>user.userName === form.userName);
+    console.log(existed);
+    if(existed.length > 0){
+      alert("User already exists");
+      return;
+    }
+
     dispatch(addUserAsync(form));
     navigate('/login')
   };
