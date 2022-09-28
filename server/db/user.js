@@ -118,6 +118,13 @@ User.addHook('beforeCreate', async(user)=> {
     }
 });
 
+User.addHook('beforeUpdate', async(user)=> {
+    if(user.changed('password')){
+      user.password = await bcrypt.hash(user.password, 10);
+    }
+});
+
+
 //create authentication
 
 

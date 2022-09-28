@@ -3,13 +3,16 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import { useSelector, useDispatch } from 'react-redux'
+import { selectSingleUser, fetchSingleUser } from "../../redux/users/singleUser";
 
 const Login = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   let [form, setForm] = useState({ userName: "", password: "" });
-  let [auth, setAuth] = useState({});
+  // let [auth, setAuth] = useState({});-------------
+  const auth = useSelector(selectSingleUser)
 
   const attemptTokenLogin = async () => {
     const token = window.localStorage.getItem("token");
@@ -22,8 +25,8 @@ const Login = () => {
       });
       const { id } = auth;
       const { data: user } = await axios.get(`/api/users/${id}`);
-      // console.log('user:', user)
-      setAuth(user);
+      // setAuth(user);--------------
+      dispatch(fetchSingleUser(user.id))
     }
   };
   const signIn = async (credentials) => {
@@ -41,6 +44,7 @@ const Login = () => {
     event.preventDefault();
     signIn(form);
     // navigate('/order-history')
+    dispatch(setCurrentUser({ test: "test" }));
   };
 
   const handleChange = (prop) => (event) => {
@@ -52,7 +56,9 @@ const Login = () => {
 
   const handleLogout = () => {
     window.localStorage.removeItem("token");
-    setAuth({});
+    // setAuth({});--------------------------
+    dispatch(fetchSingleUser(0))
+    navigate('/')
   };
 
   return !auth.id ? (
@@ -104,9 +110,11 @@ const Login = () => {
           {auth.orders.map((order, orderIdx) => (
             <li key={orderIdx}>
               <ul>
-                {order.items.map((item, itemIdx) =>
-                  <li key={itemIdx}>{item.name + ' $' + item.price + ' x ' + item.quantity}</li>
-                )}
+                {order.items.map((item, itemIdx) => (
+                  <li key={itemIdx}>
+                    {item.name + " $" + item.price + " x " + item.quantity}
+                  </li>
+                ))}
               </ul>
             </li>
           ))}
