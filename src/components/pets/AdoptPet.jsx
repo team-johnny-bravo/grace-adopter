@@ -11,10 +11,8 @@ const AdoptPet = () => {
   // console.log(state);
 
   const navigate = useNavigate()
-  const pets = useSelector(selectPets);
   const { petId } = useParams()
-  // + to make petId a number!
-  const pet = pets.find(pet => pet.id === +petId)
+
 
   const handleSubmit = (event) => {
     event.preventDefault()
