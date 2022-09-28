@@ -44,6 +44,7 @@ const Login = () => {
     event.preventDefault();
     signIn(form);
     // navigate('/order-history')
+    dispatch(setCurrentUser({ test: "test" }));
   };
 
   const handleChange = (prop) => (event) => {
@@ -109,9 +110,11 @@ const Login = () => {
           {auth.orders.map((order, orderIdx) => (
             <li key={orderIdx}>
               <ul>
-                {order.items.map((item, itemIdx) =>
-                  <li key={itemIdx}>{item.name + ' $' + item.price + ' x ' + item.quantity}</li>
-                )}
+                {order.items.map((item, itemIdx) => (
+                  <li key={itemIdx}>
+                    {item.name + " $" + item.price + " x " + item.quantity}
+                  </li>
+                ))}
               </ul>
             </li>
           ))}

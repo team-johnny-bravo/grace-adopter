@@ -26,6 +26,7 @@ const SinglePet = () => {
     getData();
   }, []);
 
+<<<<<<< HEAD
   let [auth, setAuth] = useState({});
   const attemptTokenLogin = async () => {
     const token = window.localStorage.getItem("token");
@@ -42,6 +43,8 @@ const SinglePet = () => {
     attemptTokenLogin()
   }, []);
 
+=======
+>>>>>>> 03228c8d3b12bc91d9d64e62f0e5d526f92e0330
   const handleChange = (prop) => (e) => {
     setForm({
       ...form,
