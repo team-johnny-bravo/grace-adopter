@@ -4,9 +4,9 @@ import { useLocation } from "react-router-dom";
 
 const AdoptPet = () => {
   const location = useLocation();
+  const pet = location.state
 
   const state = useSelector((state) => state);
-  console.log(state);
 
   return (
     <div>
