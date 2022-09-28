@@ -1,23 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useLocation, useParams, useNavigate } from "react-router-dom";
-import { selectPets } from '../../redux/pets/pets'
+import { useLocation } from "react-router-dom";
 
 const AdoptPet = () => {
   const location = useLocation();
   const pet = location.state
 
   const state = useSelector((state) => state);
-  // console.log(state);
-
-  const navigate = useNavigate()
-  const { petId } = useParams()
-
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    navigate('/checkout')
-  }
 
   return (
     <div>
@@ -218,8 +207,7 @@ const AdoptPet = () => {
         </div>
 
         <div id="button">
-          {/* <button type="submit" id="submit"> */}
-          <button type="submit" id="submit" onClick={handleSubmit}>
+          <button type="submit" id="submit">
             Submit
           </button>
         </div>
