@@ -4,7 +4,7 @@
   "description": "A review time project",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build-watch & npm run start-server ",
+    "start": "npm run seed & npm run build-watch & npm run start-server ",
     "build-watch": "webpack -w",
     "start-server": "JWT=nfb32 nodemon --watch server -e js,html server/index.js",
     "seed": "node seed.js"
@@ -23,7 +23,9 @@
     "express-validator": "^6.14.2",
     "jsonwebtoken": "^8.5.1",
     "less": "^4.1.3",
+    "node": "^18.9.1",
     "nodemon": "^2.0.16",
+    "npm": "^8.19.2",
     "path": "^0.12.7",
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
