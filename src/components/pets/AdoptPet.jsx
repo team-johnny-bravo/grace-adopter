@@ -223,7 +223,7 @@ const AdoptPet = () => {
         </div>
 
         <div id="button">
-          <button type="submit" id="submit">
+          <button type="submit" id="submit" onClick={handleSubmit}>
             Submit
           </button>
         </div>
