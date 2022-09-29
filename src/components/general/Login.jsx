@@ -6,6 +6,7 @@ import axios from "axios";
 import { useSelector, useDispatch } from 'react-redux'
 import { selectSingleUser, fetchSingleUser } from "../../redux/users/singleUser";
 
+
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ const Login = () => {
     event.preventDefault();
     signIn(form);
     // navigate('/order-history')
-    dispatch(setCurrentUser({ test: "test" }));
+    // dispatch(setCurrentUser({ test: "test" }));
   };
 
   const handleChange = (prop) => (event) => {

@@ -54,7 +54,10 @@ const NavBar = () => {
       <div className="links">
         <a href="/about">About</a>
         {user.isAdmin ? (
-          <button onClick={() => navigate("/addpet")}>Add Pet</button>
+          <>
+            <button onClick={() => navigate("/addpet")}>Add Pet</button>
+            <button onClick={() => navigate("/users")}>Users List</button>
+          </>
         ) : null}
         {user.userName ? (
           <>

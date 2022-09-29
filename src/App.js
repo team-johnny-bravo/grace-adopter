@@ -17,13 +17,14 @@ import { fetchProductsAsync } from "./redux/products/products.js";
 import { fetchUsersAsync } from "./redux/users/users.js";
 import { fetchOrdersAsync } from "./redux/orders/orders.js";
 import CheckoutSuccess from "./components/general/CheckoutSuccess.jsx";
+import Users from "./components/users/Users.jsx";
 import axios from "axios";
 
 import Checkout from "./components/general/Checkout.jsx";
 
 function App() {
   const state = useSelector((state) => state);
-  console.dir(state);
+  // console.dir(state);
   const dispatch = useDispatch();
 
   // let [auth, setAuth] = useState({});
@@ -65,6 +66,7 @@ function App() {
           <Route path={"/checkout"} element={<Checkout />} />
           <Route path={"/user/:userId"} element={<User />} />
           <Route path={"/checkout-success"} element={<CheckoutSuccess />} />
+          <Route path={'/users'} element={<Users/>}/>
         </Routes>
       </div>
       <Footer />
