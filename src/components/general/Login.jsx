@@ -49,11 +49,11 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const existed = users.filter(user =>user.userName === form.userName);
-    if(existed.length === 0){
-      alert("User not exists");
-      return;
-    }
+    // const existed = users.filter(user =>user.userName === form.userName);
+    // if(existed.length === 0){
+    //   alert("User not exists");
+    //   return;
+    // }
 
     signIn(form);
     // navigate('/order-history')
