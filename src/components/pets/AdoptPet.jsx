@@ -21,6 +21,10 @@ const AdoptPet = () => {
     event.preventDefault()
     navigate('/checkout')
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4b4f3ffd123e16353ce6e9a9ae1b72754c31a08e
 
   return (
     <div>
