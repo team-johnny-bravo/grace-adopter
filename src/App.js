@@ -24,34 +24,17 @@ import Checkout from "./components/general/Checkout.jsx";
 
 function App() {
   const state = useSelector((state) => state);
-  // console.dir(state);
   const dispatch = useDispatch();
-
-  // let [auth, setAuth] = useState({});
-  // const attemptTokenLogin = async () => {
-  //   const token = window.localStorage.getItem("token");
-
-  //   if (token) {
-  //     const { data: authUser } = await axios.get("/api/users/auth/signin", {
-  //       headers: {
-  //         authorization: token,
-  //       },
-  //     });
-  //     setAuth(authUser);
-  //   }
-  // };
 
   useEffect(() => {
     dispatch(fetchPetsAsync());
     dispatch(fetchProductsAsync());
     dispatch(fetchUsersAsync());
     dispatch(fetchOrdersAsync());
-    // attemptTokenLogin()
   }, [dispatch]);
 
   return (
     <>
-      {/* <NavBar user={auth}/> */}
       <NavBar />
       <div id="main">
         <Routes>
@@ -61,7 +44,6 @@ function App() {
           <Route path={"/signup"} element={<Signup />} />
           <Route path={"/addpet"} element={<AddPet />} />
           <Route path={"/pets/:petId"} element={<SinglePet />} />
-          {/* <Route path={"/adopt"} element={<AdoptPet />} /> */}
           <Route path={"/adopt/:petId"} element={<AdoptPet />} />
           <Route path={"/checkout"} element={<Checkout />} />
           <Route path={"/user/:userId"} element={<User />} />
