@@ -5,6 +5,9 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from 'react-redux'
 import { selectSingleUser, fetchSingleUser } from "../../redux/users/singleUser";
+import {selectUsers, fetchUsersAsync } from "../../redux/users/users";
+
+
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -13,6 +16,7 @@ const Login = () => {
   let [form, setForm] = useState({ userName: "", password: "" });
   // let [auth, setAuth] = useState({});-------------
   const auth = useSelector(selectSingleUser)
+  const users = useSelector(selectUsers)
 
   const attemptTokenLogin = async () => {
     const token = window.localStorage.getItem("token");
@@ -38,13 +42,22 @@ const Login = () => {
 
   React.useEffect(() => {
     attemptTokenLogin();
+    dispatch(fetchUsersAsync());
   }, []);
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // const existed = users.filter(user =>user.userName === form.userName);
+    // if(existed.length === 0){
+    //   alert("User not exists");
+    //   return;
+    // }
+
     signIn(form);
     // navigate('/order-history')
-    dispatch(setCurrentUser({ test: "test" }));
+    // dispatch(setCurrentUser({ test: "test" }));
   };
 
   const handleChange = (prop) => (event) => {

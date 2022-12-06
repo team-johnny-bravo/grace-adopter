@@ -5,18 +5,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { selectSingleUser, fetchSingleUser } from "../../redux/users/singleUser";
 
 
-// const NavBar = ({ user }) => {
 const NavBar = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch()
-  // const user = {
-  //   name: "Jeff",
-  //   isAdmin: true,
-  // };
+
 
   const user = useSelector(selectSingleUser)
-  // let [user, setUser] = useState({});
   const attemptTokenLogin = async () => {
     const token = window.localStorage.getItem("token");
     if (token) {
@@ -25,7 +20,7 @@ const NavBar = () => {
           authorization: token,
         },
       });
-      // setUser(authUser);
+
       dispatch(fetchSingleUser(authUser.id))
     } else {
       dispatch(fetchSingleUser(0))
@@ -38,7 +33,6 @@ const NavBar = () => {
 
   const handleLogout = () => {
     window.localStorage.removeItem("token");
-    // setUser({});
     dispatch(fetchSingleUser(0))
     navigate('/')
   };
@@ -50,15 +44,18 @@ const NavBar = () => {
         <a href="/">
           <img src="https://i.imgur.com/TgUxx9u.png" alt="logo" />
         </a>
+        <h1>Grace Adopter</h1>
       </div>
       <div className="links">
         <a href="/about">About</a>
         {user.isAdmin ? (
-          <button onClick={() => navigate("/addpet")}>Add Pet</button>
+          <>
+            <button onClick={() => navigate("/addpet")}>Add Pet</button>
+            <button onClick={() => navigate("/users")}>Users List</button>
+          </>
         ) : null}
         {user.userName ? (
           <>
-            {/* <button onClick={() => navigate("/user/:userId")}> */}
             <button onClick={() => navigate(`/user/${user.id}`)}>
               Welcome, {user.userName}
             </button>

@@ -348,22 +348,67 @@ const pets =[{
     status:'available'
 }]
 
+// const products =[{
+//     name: 'leash',
+//     price: 10.00,
+//     quantity: 20,
+//     size: 'small',
+//     description: 'Only for puppy!'
+// },{
+//     name: 'treats',
+//     price: 5.00,
+//     quantity: 30,
+//     description: 'Only for kitty!'    
+// },{
+//     name: 'toy',
+//     price: 15.00,
+//     quantity: 10,
+//     description: 'Toys for all!'
+// }]
+
 const products =[{
-    name: 'leash',
-    price: 10.00,
+    name:'Collar, large',
+    description:'Seresto Bayer Flea and Tick Collar for Large Dogs',
+    price:19.99,
     quantity: 20,
-    size: 'small',
-    description: 'Only for puppy!'
+    size:'large'
 },{
-    name: 'treats',
-    price: 5.00,
+    name:'Collar, medium',
+    description:'YOULY The Extrovert Tan & Rainbow Braided Dog Collar, Medium',
+    price:14.99,
     quantity: 30,
-    description: 'Only for kitty!'    
+    size:'Medium'    
 },{
-    name: 'toy',
-    price: 15.00,
-    quantity: 10,
-    description: 'Toys for all!'
+    name:'Collar, small',
+    description:'Bond & Co. Teal Leather Bow Tie Dog Collar, X-Small/Small',
+    price:12.99,
+    quantity: 25,
+    size:'Small'     
+},{
+    name:'Leash, Reddy Red Camo LED',
+    description:'Reddy Red Camo LED Dog Lead, 4 ft.',
+    price:19.99, 
+    quantity: 20,
+},{
+    name:'Leash, Backcountry',
+    description:'Backcountry x Petco The Dog Lead, 6 ft.',
+    price:17.50,  
+    quantity: 10,   
+},{
+    name:'Bed, FurHaven Calming Cuddler',
+    description:'FurHaven Calming Cuddler Long Fur Donut Pet Bed, 23" L X 23" W X 9" H, Gray',
+    price:32.99,   
+    quantity: 10,  
+},{
+    name:'Bed, FurHaven Fresh Blueberry',
+    description:'FurHaven Fresh Blueberry Deep Dish Curly Fur Plush Donut Pet Bed, 20" L X 20" W X 7.5" H',
+    price:42.99, 
+    quantity: 5,
+},{
+    name:'Soft Chews',
+    description:'Advantus Bayer Flea Soft Chews for Small Dogs 4-22lbs, 30 count',
+    price:29.99,
+    quantity: 25,
 }]
 
 const users =[{
