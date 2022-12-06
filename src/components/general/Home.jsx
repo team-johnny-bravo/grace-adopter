@@ -22,6 +22,7 @@ const Home = () => {
           alt="Animals"
         />
       </div>
+      <h1 id="pet-header">Adoptable Pets</h1>
       <div className="pets">
         {[...pets].sort((a, b) => a.id - b.id).map((pet) =>
           <Pet data={pet} key={pet.id} />
